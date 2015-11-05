@@ -1,36 +1,30 @@
-//
-//  ExampleAppTests.swift
-//  ExampleAppTests
-//
-//  Created by Jesse Farless on 11/4/15.
-//  Copyright © 2015 Jesse Farless. All rights reserved.
-//
-
 import XCTest
 @testable import ExampleApp
 
 class ExampleAppTests: XCTestCase {
-    
+    var fakeWindow: FakeWindow!
+    var appProxy: AppProxy!
+
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+        self.fakeWindow = FakeWindow()
+        self.appProxy = AppProxy(window: fakeWindow)
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
+
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        launchApp()
+        let _ = fakeWindow.rootViewController as ViewPresenting?
+//        XCTAssert(fakeDashboard)
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
+
+    func launchApp() {
+        appProxy.willFinishLaunchingWithOptions()
+        appProxy.didFinishLaunchingWithOptions()
+        transitionAppToForeground()
     }
-    
+
+    func transitionAppToForeground() {
+        appProxy.applicationDidBecomeActive()
+    }
 }
