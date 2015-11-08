@@ -1,36 +1,11 @@
+@testable import ExampleApp
 import XCTest
 import Swinject
-@testable import ExampleApp
-
-class SpecContainerFactory {
-
-    static func createContainer() -> Container {
-        let c = ContainerFactory.createContainer()
-
-        c.register(Windowable.self) { r in
-            FakeWindow()
-        }
-
-        c.register(DashboardPresenting.self) { r in
-            FakeDashboardPresenter()
-        }
-
-        return c
-    }
-}
 
 class ExampleAppTests: XCTestCase {
 
     var appContainer: Container!
     var appProxy: AppProxy!
-
-    var fakeWindow: Windowable {
-        return appProxy.window
-    }
-
-    var fakeDashboard: FakeDashboardPresenter {
-        return fakeWindow.rootViewPresenter as! FakeDashboardPresenter
-    }
 
     override func setUp() {
         super.setUp()
@@ -54,5 +29,13 @@ class ExampleAppTests: XCTestCase {
 
     func transitionAppToForeground() {
         appProxy.didBecomeActive()
+    }
+
+    var fakeWindow: Windowable {
+        return appProxy.window
+    }
+
+    var fakeDashboard: FakeDashboardPresenter {
+        return fakeWindow.rootViewPresenter as! FakeDashboardPresenter
     }
 }

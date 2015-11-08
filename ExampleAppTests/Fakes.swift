@@ -1,6 +1,16 @@
-import Foundation
 import UIKit
 @testable import ExampleApp
+
+class FakeWindow: Windowable {
+    var rootViewPresenter: ViewPresenting?
+    
+    func makeKeyAndVisible() {
+    }
+
+    var window: UIWindow {
+        return UIWindow() //TODO
+    }
+}
 
 class FakeDashboardPresenter: DashboardPresenting {
     var viewController: UIViewController {

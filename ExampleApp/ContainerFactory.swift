@@ -1,7 +1,6 @@
 import Swinject
 import UIKit
 
-
 class ContainerFactory {
 
     static func createContainer() -> Container {
