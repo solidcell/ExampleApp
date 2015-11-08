@@ -12,7 +12,8 @@ class SpecContainerFactory {
         }
 
         c.register(DashboardPresenting.self) { r in
-            FakeDashboardPresenter()
+            let viewModel = r.resolve(DashboardViewModel.self)!
+            return FakeDashboardPresenter(viewModel: viewModel)
         }
 
         return c

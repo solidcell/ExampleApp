@@ -13,11 +13,17 @@ class FakeWindow: Windowable {
 }
 
 class FakeDashboardPresenter: DashboardPresenting {
+    let viewModel: DashboardViewModel
+
+    init(viewModel: DashboardViewModel) {
+        self.viewModel = viewModel
+    }
+
     var viewController: UIViewController {
         return UIViewController() // TODONOW get rid of this?
     }
 
     var someThingOnThePage: String {
-      return "sth from the viewModel"
+      return viewModel.mainLabelString
     }
 }

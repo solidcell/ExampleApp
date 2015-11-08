@@ -20,8 +20,13 @@ class ContainerFactory {
             return AppProxy(appContainer: r, window: window)
         }
 
+        c.register(DashboardViewModel.self) { r in
+            DashboardViewModel()
+        }
+
         c.register(DashboardPresenting.self) { r in
-            DashboardViewController()
+            let viewModel = r.resolve(DashboardViewModel.self)!
+            return DashboardViewController(viewModel: viewModel)
         }
 
         return c
