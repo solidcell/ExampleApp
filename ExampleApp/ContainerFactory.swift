@@ -6,13 +6,16 @@ class ContainerFactory {
     static func createContainer() -> Container {
         let c = Container()
 
+        self.registerMainObjectGraph(c)
+        self.registerLeafObjects(c)
+
+        return c
+    }
+
+    static func registerMainObjectGraph(c: Container) -> Container {
+
         c.register(Screenable.self) { r in
             UIScreen.mainScreen()
-        }
-
-        c.register(Windowable.self) { r in
-            let screen = r.resolve(Screenable.self)!
-            return UIWindow(frame: screen.bounds)
         }
 
         c.register(AppProxy.self) { r in
@@ -22,6 +25,16 @@ class ContainerFactory {
 
         c.register(DashboardViewModel.self) { r in
             DashboardViewModel()
+        }
+
+        return c
+    }
+
+    static func registerLeafObjects(c: Container) -> Container {
+
+        c.register(Windowable.self) { r in
+            let screen = r.resolve(Screenable.self)!
+            return UIWindow(frame: screen.bounds)
         }
 
         c.register(DashboardPresenting.self) { r in

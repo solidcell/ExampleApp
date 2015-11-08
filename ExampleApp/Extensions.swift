@@ -1,13 +1,13 @@
 import UIKit
 
-// MARK: View
+// MARK: View Presenter
 
 protocol ViewPresenting {
-    var viewController: UIViewController { get }
+    var real: UIViewController { get }
 }
 
 extension UIViewController: ViewPresenting {
-    var viewController: UIViewController {
+    var real: UIViewController {
         return self
     }
 }
@@ -15,20 +15,19 @@ extension UIViewController: ViewPresenting {
 // MARK: Window
 
 protocol Windowable {
-    var window: UIWindow { get }
+    var real: UIWindow { get }
     var rootViewPresenter: ViewPresenting? { get set }
     func makeKeyAndVisible()
 }
 
 extension UIWindow: Windowable {
-    // TODO why does this need `public override`?
-    public override var window: UIWindow {
+    var real: UIWindow {
         return self
     }
 
     var rootViewPresenter: ViewPresenting? {
         set(newValue) {
-            self.rootViewController = newValue?.viewController
+            self.rootViewController = newValue?.real
         }
         get {
             return self.rootViewController

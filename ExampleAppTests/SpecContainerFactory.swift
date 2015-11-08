@@ -5,7 +5,15 @@ import Swinject
 class SpecContainerFactory {
 
     static func createContainer() -> Container {
-        let c = ContainerFactory.createContainer()
+        let c = Container()
+
+        ContainerFactory.registerMainObjectGraph(c)
+        self.registerLeafObjects(c)
+
+        return c
+    }
+
+    static func registerLeafObjects(c: Container) -> Container {
 
         c.register(Windowable.self) { r in
             FakeWindow()

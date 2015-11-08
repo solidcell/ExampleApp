@@ -7,8 +7,8 @@ class FakeWindow: Windowable {
     func makeKeyAndVisible() {
     }
 
-    var window: UIWindow {
-        return UIWindow() //TODO
+    var real: UIWindow {
+        fatalError("fakes should never be asked for a real representation")
     }
 }
 
@@ -19,8 +19,8 @@ class FakeDashboardPresenter: DashboardPresenting {
         self.viewModel = viewModel
     }
 
-    var viewController: UIViewController {
-        return UIViewController() // TODONOW get rid of this?
+    var real: UIViewController {
+        fatalError("fakes should never be asked for a real representation")
     }
 
     var someThingOnThePage: String {
