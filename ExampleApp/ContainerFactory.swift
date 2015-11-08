@@ -14,23 +14,24 @@ class ContainerFactory {
 
     static func registerMainObjectGraph(c: Container) -> Container {
 
-        c.register(Screenable.self) { r in
-            UIScreen.mainScreen()
-        }
-
         c.register(AppProxy.self) { r in
             let window = r.resolve(Windowable.self)!
             return AppProxy(appContainer: r, window: window)
         }
 
         c.register(DashboardViewModel.self) { r in
-            DashboardViewModel()
+            let screen = r.resolve(Screenable.self)!
+            return DashboardViewModel(screen: screen)
         }
 
         return c
     }
 
     static func registerLeafObjects(c: Container) -> Container {
+
+        c.register(Screenable.self) { r in
+            UIScreen.mainScreen()
+        }
 
         c.register(Windowable.self) { r in
             let screen = r.resolve(Screenable.self)!

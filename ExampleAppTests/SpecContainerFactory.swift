@@ -15,6 +15,10 @@ class SpecContainerFactory {
 
     static func registerLeafObjects(c: Container) -> Container {
 
+        c.register(Screenable.self) { r in
+            FakeScreen()
+        }
+
         c.register(Windowable.self) { r in
             FakeWindow()
         }

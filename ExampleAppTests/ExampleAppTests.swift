@@ -19,6 +19,7 @@ class ExampleAppTests: XCTestCase {
         appProxy.didFinishLaunchingWithOptions()
         transitionAppToForeground()
         XCTAssert(fakeDashboard.someThingOnThePage == "sth from the viewModel")
+        XCTAssert(fakeDashboard.deviceRemark == "i see your device size is 100.0x150.0")
     }
 
     func launchApp() {

@@ -1,8 +1,18 @@
 import UIKit
 
 class DashboardViewModel {
+    let screen: Screenable
+
+    init(screen: Screenable) {
+        self.screen = screen
+    }
+
     var mainLabelString: String {
         return "sth from the viewModel"
+    }
+
+    var deviceRemark: String {
+        return "i see your device size is \(screen.bounds.width)x\(screen.bounds.height)"
     }
 }
 
@@ -31,6 +41,6 @@ class DashboardViewController: UIViewController, DashboardPresenting {
         label.center = CGPointMake(160, 284)
         label.textAlignment = NSTextAlignment.Center
         label.text = viewModel.mainLabelString
-        self.view.addSubview(label)
+        view.addSubview(label)
     }
 }
