@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8869C7C71BEFC3CF00BCD34C /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8869C7C51BEFC3CF00BCD34C /* Swinject.framework */; };
 		88ADFA191BEB3637008C5180 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA181BEB3637008C5180 /* AppDelegate.swift */; };
 		88ADFA1B1BEB3637008C5180 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA1A1BEB3637008C5180 /* ViewController.swift */; };
 		88ADFA201BEB3637008C5180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88ADFA1F1BEB3637008C5180 /* Assets.xcassets */; };
 		88ADFA231BEB3637008C5180 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88ADFA211BEB3637008C5180 /* LaunchScreen.storyboard */; };
 		88ADFA2E1BEB3637008C5180 /* ExampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA2D1BEB3637008C5180 /* ExampleAppTests.swift */; };
-		88ADFA3A1BEB3B18008C5180 /* AppProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA391BEB3B18008C5180 /* AppProxy.swift */; settings = {ASSET_TAGS = (); }; };
-		88ADFA3E1BEB3EAB008C5180 /* FakeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA3D1BEB3EAB008C5180 /* FakeWindow.swift */; settings = {ASSET_TAGS = (); }; };
-		88ADFA401BEB3ED0008C5180 /* Windowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA3F1BEB3ED0008C5180 /* Windowable.swift */; settings = {ASSET_TAGS = (); }; };
-		88ADFA421BEB42BE008C5180 /* ViewPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA411BEB42BE008C5180 /* ViewPresenting.swift */; settings = {ASSET_TAGS = (); }; };
-		88ADFA441BEB457B008C5180 /* FakeDashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA431BEB457B008C5180 /* FakeDashboardPresenter.swift */; settings = {ASSET_TAGS = (); }; };
-		88ADFA461BEB46B0008C5180 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA451BEB46B0008C5180 /* DashboardViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		88ADFA3A1BEB3B18008C5180 /* AppProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA391BEB3B18008C5180 /* AppProxy.swift */; };
+		88ADFA3E1BEB3EAB008C5180 /* FakeWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA3D1BEB3EAB008C5180 /* FakeWindow.swift */; };
+		88ADFA441BEB457B008C5180 /* FakeDashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA431BEB457B008C5180 /* FakeDashboardPresenter.swift */; };
+		88ADFA461BEB46B0008C5180 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA451BEB46B0008C5180 /* DashboardViewController.swift */; };
+		88ADFA501BEC509C008C5180 /* ContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA4F1BEC509C008C5180 /* ContainerFactory.swift */; };
+		88D3C09C1BEF1E2900A97E4B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3C09B1BEF1E2900A97E4B /* main.swift */; };
+		88F71A381BEFFB2D00323556 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F71A371BEFFB2D00323556 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +32,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		88ADFA4B1BEC4F9C008C5180 /* Copy framework dSYMs */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Copy framework dSYMs";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		8869C7C51BEFC3CF00BCD34C /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
+		886BD6801BEC6A5500753268 /* ExampleApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ExampleApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		88ADFA151BEB3637008C5180 /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88ADFA181BEB3637008C5180 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88ADFA1A1BEB3637008C5180 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,10 +59,11 @@
 		88ADFA2F1BEB3637008C5180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88ADFA391BEB3B18008C5180 /* AppProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppProxy.swift; sourceTree = "<group>"; };
 		88ADFA3D1BEB3EAB008C5180 /* FakeWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeWindow.swift; sourceTree = "<group>"; };
-		88ADFA3F1BEB3ED0008C5180 /* Windowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Windowable.swift; sourceTree = "<group>"; };
-		88ADFA411BEB42BE008C5180 /* ViewPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPresenting.swift; sourceTree = "<group>"; };
 		88ADFA431BEB457B008C5180 /* FakeDashboardPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeDashboardPresenter.swift; sourceTree = "<group>"; };
 		88ADFA451BEB46B0008C5180 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		88ADFA4F1BEC509C008C5180 /* ContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerFactory.swift; sourceTree = "<group>"; };
+		88D3C09B1BEF1E2900A97E4B /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		88F71A371BEFFB2D00323556 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8869C7C71BEFC3CF00BCD34C /* Swinject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +90,7 @@
 			children = (
 				88ADFA171BEB3637008C5180 /* ExampleApp */,
 				88ADFA2C1BEB3637008C5180 /* ExampleAppTests */,
+				88ADFA471BEC4F2D008C5180 /* Frameworks */,
 				88ADFA161BEB3637008C5180 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,15 +107,17 @@
 		88ADFA171BEB3637008C5180 /* ExampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				88D3C09B1BEF1E2900A97E4B /* main.swift */,
 				88ADFA181BEB3637008C5180 /* AppDelegate.swift */,
+				88ADFA4F1BEC509C008C5180 /* ContainerFactory.swift */,
+				88F71A371BEFFB2D00323556 /* Extensions.swift */,
+				88ADFA391BEB3B18008C5180 /* AppProxy.swift */,
 				88ADFA1A1BEB3637008C5180 /* ViewController.swift */,
+				88ADFA451BEB46B0008C5180 /* DashboardViewController.swift */,
+				88ADFA241BEB3637008C5180 /* Info.plist */,
 				88ADFA1F1BEB3637008C5180 /* Assets.xcassets */,
 				88ADFA211BEB3637008C5180 /* LaunchScreen.storyboard */,
-				88ADFA241BEB3637008C5180 /* Info.plist */,
-				88ADFA391BEB3B18008C5180 /* AppProxy.swift */,
-				88ADFA451BEB46B0008C5180 /* DashboardViewController.swift */,
-				88ADFA3F1BEB3ED0008C5180 /* Windowable.swift */,
-				88ADFA411BEB42BE008C5180 /* ViewPresenting.swift */,
+				886BD6801BEC6A5500753268 /* ExampleApp-Bridging-Header.h */,
 			);
 			path = ExampleApp;
 			sourceTree = "<group>";
@@ -104,11 +126,19 @@
 			isa = PBXGroup;
 			children = (
 				88ADFA2D1BEB3637008C5180 /* ExampleAppTests.swift */,
-				88ADFA2F1BEB3637008C5180 /* Info.plist */,
 				88ADFA3D1BEB3EAB008C5180 /* FakeWindow.swift */,
 				88ADFA431BEB457B008C5180 /* FakeDashboardPresenter.swift */,
+				88ADFA2F1BEB3637008C5180 /* Info.plist */,
 			);
 			path = ExampleAppTests;
+			sourceTree = "<group>";
+		};
+		88ADFA471BEC4F2D008C5180 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8869C7C51BEFC3CF00BCD34C /* Swinject.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,6 +151,8 @@
 				88ADFA111BEB3637008C5180 /* Sources */,
 				88ADFA121BEB3637008C5180 /* Frameworks */,
 				88ADFA131BEB3637008C5180 /* Resources */,
+				88ADFA4A1BEC4F60008C5180 /* Carthage copy-frameworks */,
+				88ADFA4B1BEC4F9C008C5180 /* Copy framework dSYMs */,
 			);
 			buildRules = (
 			);
@@ -155,6 +187,7 @@
 		88ADFA0D1BEB3637008C5180 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Jesse Farless";
 				TargetAttributes = {
@@ -205,16 +238,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		88ADFA4A1BEC4F60008C5180 /* Carthage copy-frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Swinject.framework",
+			);
+			name = "Carthage copy-frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		88ADFA111BEB3637008C5180 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				88ADFA1B1BEB3637008C5180 /* ViewController.swift in Sources */,
+				88F71A381BEFFB2D00323556 /* Extensions.swift in Sources */,
 				88ADFA461BEB46B0008C5180 /* DashboardViewController.swift in Sources */,
-				88ADFA401BEB3ED0008C5180 /* Windowable.swift in Sources */,
-				88ADFA421BEB42BE008C5180 /* ViewPresenting.swift in Sources */,
+				88D3C09C1BEF1E2900A97E4B /* main.swift in Sources */,
 				88ADFA191BEB3637008C5180 /* AppDelegate.swift in Sources */,
+				88ADFA501BEC509C008C5180 /* ContainerFactory.swift in Sources */,
 				88ADFA3A1BEB3B18008C5180 /* AppProxy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,10 +388,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ExampleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.solidcell.ExampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ExampleApp/ExampleApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -347,10 +406,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ExampleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.solidcell.ExampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ExampleApp/ExampleApp-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -358,6 +423,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ExampleAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.solidcell.ExampleAppTests;
@@ -370,6 +439,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ExampleAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.solidcell.ExampleAppTests;
@@ -397,6 +470,7 @@
 				88ADFA341BEB3637008C5180 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		88ADFA351BEB3637008C5180 /* Build configuration list for PBXNativeTarget "ExampleAppTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +479,7 @@
 				88ADFA371BEB3637008C5180 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

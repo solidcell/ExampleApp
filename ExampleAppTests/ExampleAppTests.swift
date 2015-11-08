@@ -1,21 +1,49 @@
 import XCTest
+import Swinject
 @testable import ExampleApp
 
+class SpecContainerFactory {
+
+    static func createContainer() -> Container {
+        let c = ContainerFactory.createContainer()
+
+        c.register(Windowable.self) { r in
+            FakeWindow()
+        }
+
+        c.register(DashboardPresenting.self) { r in
+            FakeDashboardPresenter()
+        }
+
+        return c
+    }
+}
+
 class ExampleAppTests: XCTestCase {
-    var fakeWindow: FakeWindow!
+
+    var appContainer: Container!
     var appProxy: AppProxy!
+
+    var fakeWindow: Windowable {
+        return appProxy.window
+    }
+
+    var fakeDashboard: FakeDashboardPresenter {
+        return fakeWindow.rootViewPresenter as! FakeDashboardPresenter
+    }
 
     override func setUp() {
         super.setUp()
 
-        self.fakeWindow = FakeWindow()
-        self.appProxy = AppProxy(window: fakeWindow)
+        appContainer = SpecContainerFactory.createContainer()
+        appProxy = appContainer.resolve(AppProxy.self)
     }
 
-    func testExample() {
-        launchApp()
-        let _ = fakeWindow.rootViewController as ViewPresenting?
-//        XCTAssert(fakeDashboard)
+    func testAppCanLaunch() {
+        XCTAssert(appProxy.willFinishLaunchingWithOptions(), "must return `true`")
+        appProxy.didFinishLaunchingWithOptions()
+        transitionAppToForeground()
+        XCTAssert(fakeDashboard.someThingOnThePage == "sth from the viewModel")
     }
 
     func launchApp() {
@@ -25,6 +53,6 @@ class ExampleAppTests: XCTestCase {
     }
 
     func transitionAppToForeground() {
-        appProxy.applicationDidBecomeActive()
+        appProxy.didBecomeActive()
     }
 }

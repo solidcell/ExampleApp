@@ -1,4 +1,7 @@
 import UIKit
 
-class DashboardViewController: UIViewController, ViewPresenting {
+protocol DashboardPresenting: ViewPresenting {
+}
+
+class DashboardViewController: UIViewController, DashboardPresenting {
 }
