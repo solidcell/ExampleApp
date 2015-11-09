@@ -4,11 +4,20 @@ import UIKit
 
 protocol ViewPresenting {
     var real: UIViewController { get }
+    var presentedViewPresenter: ViewPresenting? { get }
+    func viewDidAppear()
 }
 
 extension UIViewController: ViewPresenting {
     var real: UIViewController {
         return self
+    }
+
+    var presentedViewPresenter: ViewPresenting? {
+        return presentedViewController
+    }
+
+    func viewDidAppear() {
     }
 }
 
@@ -37,7 +46,7 @@ extension UIWindow: Windowable {
 
 // MARK: Screen
 
-protocol Screenable: class {
+protocol Screenable {
     var bounds: CGRect { get }
 }
 

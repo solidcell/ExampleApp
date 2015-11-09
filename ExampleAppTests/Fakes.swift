@@ -6,7 +6,13 @@ class FakeScreen: Screenable {
 }
 
 class FakeWindow: Windowable {
-    var rootViewPresenter: ViewPresenting?
+    let viewPresentingLifecyle = ViewPresentingLifecycle()
+
+    var rootViewPresenter: ViewPresenting? {
+        didSet {
+            viewPresentingLifecyle.appear(rootViewPresenter!)
+        }
+    }
     
     func makeKeyAndVisible() {
     }
@@ -16,15 +22,37 @@ class FakeWindow: Windowable {
     }
 }
 
+class FakeSlideUpPresenter: SlideUpPresenting {
+    var presentedViewPresenter: ViewPresenting?
+
+    var real: UIViewController {
+        fatalError("fakes should never be asked for a real representation")
+    }
+
+    func viewDidAppear() {
+    }
+}
+
 class FakeDashboardPresenter: DashboardPresenting {
     let viewModel: DashboardViewModel
+    var presentedViewPresenter: ViewPresenting?
 
     init(viewModel: DashboardViewModel) {
         self.viewModel = viewModel
     }
 
     var real: UIViewController {
+        // TODO is there a better solution?
         fatalError("fakes should never be asked for a real representation")
+    }
+
+    // TODO view lifecycle methods should share viewModel calls/logic with the real impls
+    func viewDidAppear() {
+        viewModel.viewDidAppear()
+    }
+
+    func viewDidAppear(animated: Bool = false) {
+        return viewModel.viewDidAppear()
     }
 
     var someThingOnThePage: String {
@@ -33,5 +61,9 @@ class FakeDashboardPresenter: DashboardPresenting {
 
     var deviceRemark: String {
         return viewModel.deviceRemark
+    }
+
+    func pushImportantModal(viewPresenter: ViewPresenting) {
+        presentedViewPresenter = viewPresenter
     }
 }

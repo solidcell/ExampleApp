@@ -8,7 +8,8 @@ class SpecContainerFactory {
         return ContainerFactory.registerServices(
             screen: { FakeScreen() },
             window: { _ in FakeWindow() },
-            dashboard: { viewModel in FakeDashboardPresenter(viewModel: viewModel) }
+            dashboard: { viewModel in FakeDashboardPresenter(viewModel: viewModel) },
+            slideUp: { FakeSlideUpPresenter() }
         )
     }
 }

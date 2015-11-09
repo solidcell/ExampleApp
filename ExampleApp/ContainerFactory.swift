@@ -7,14 +7,16 @@ class ContainerFactory {
         return self.registerServices(
             screen: { UIScreen.mainScreen() },
             window: { bounds in UIWindow(frame: bounds) },
-            dashboard: { viewModel in DashboardViewController(viewModel: viewModel) }
+            dashboard: { viewModel in DashboardViewController(viewModel: viewModel) },
+            slideUp: { SlideUpViewController() }
         )
     }
 
     static func registerServices(screen
         screen: () -> Screenable,
         window: (CGRect) -> Windowable,
-        dashboard: (DashboardViewModel) -> DashboardPresenting
+        dashboard: (DashboardViewModel) -> DashboardPresenting,
+        slideUp: () -> SlideUpPresenting
         ) -> Container
     {
         let c = Container()
@@ -28,12 +30,12 @@ class ContainerFactory {
 
         c.register(DashboardViewModel.self) { r in
             let screen = r.resolve(Screenable.self)!
-            return DashboardViewModel(screen: screen)
+            return DashboardViewModel(appContainer: r, screen: screen)
         }
 
         // MARK: Leaf Objects
 
-        c.register(Screenable.self) { r in
+        c.register(Screenable.self) { _ in
             screen()
         }.inObjectScope(.Container)
 
@@ -44,7 +46,14 @@ class ContainerFactory {
 
         c.register(DashboardPresenting.self) { r in
             let viewModel = r.resolve(DashboardViewModel.self)!
-            return dashboard(viewModel)
+            let dashboard = dashboard(viewModel)
+            // TODO breaking law of demeter
+            dashboard.viewModel.presenter = dashboard
+            return dashboard
+        }
+
+        c.register(SlideUpPresenting.self) { _ in
+            slideUp()
         }
 
         return c

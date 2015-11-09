@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8869C7C71BEFC3CF00BCD34C /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8869C7C51BEFC3CF00BCD34C /* Swinject.framework */; };
+		8871B7991BF07FE5009563DF /* Lifecycles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8871B7981BF07FE5009563DF /* Lifecycles.swift */; };
 		88ADFA191BEB3637008C5180 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA181BEB3637008C5180 /* AppDelegate.swift */; };
 		88ADFA201BEB3637008C5180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88ADFA1F1BEB3637008C5180 /* Assets.xcassets */; };
 		88ADFA231BEB3637008C5180 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88ADFA211BEB3637008C5180 /* LaunchScreen.storyboard */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		8869C7C51BEFC3CF00BCD34C /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
 		886BD6801BEC6A5500753268 /* ExampleApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ExampleApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		8871B7981BF07FE5009563DF /* Lifecycles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lifecycles.swift; sourceTree = "<group>"; };
 		88ADFA151BEB3637008C5180 /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88ADFA181BEB3637008C5180 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88ADFA1F1BEB3637008C5180 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				88ADFA2D1BEB3637008C5180 /* ExampleAppTests.swift */,
+				8871B7981BF07FE5009563DF /* Lifecycles.swift */,
 				88F71A3B1BF001B900323556 /* SpecContainerFactory.swift */,
 				88ADFA3D1BEB3EAB008C5180 /* Fakes.swift */,
 				88ADFA2F1BEB3637008C5180 /* Info.plist */,
@@ -273,6 +276,7 @@
 			files = (
 				88ADFA3E1BEB3EAB008C5180 /* Fakes.swift in Sources */,
 				88ADFA2E1BEB3637008C5180 /* ExampleAppTests.swift in Sources */,
+				8871B7991BF07FE5009563DF /* Lifecycles.swift in Sources */,
 				88F71A3C1BF001B900323556 /* SpecContainerFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
