@@ -4,15 +4,22 @@ import UIKit
 class ContainerFactory {
 
     static func createContainer() -> Container {
-        let c = Container()
-
-        self.registerMainObjectGraph(c)
-        self.registerLeafObjects(c)
-
-        return c
+        return self.registerServices(
+            screen: { UIScreen.mainScreen() },
+            window: { bounds in UIWindow(frame: bounds) },
+            dashboard: { viewModel in DashboardViewController(viewModel: viewModel) }
+        )
     }
 
-    static func registerMainObjectGraph(c: Container) -> Container {
+    static func registerServices(screen
+        screen: () -> Screenable,
+        window: (CGRect) -> Windowable,
+        dashboard: (DashboardViewModel) -> DashboardPresenting
+        ) -> Container
+    {
+        let c = Container()
+
+        // MARK: Main Object Graph
 
         c.register(AppProxy.self) { r in
             let window = r.resolve(Windowable.self)!
@@ -24,23 +31,20 @@ class ContainerFactory {
             return DashboardViewModel(screen: screen)
         }
 
-        return c
-    }
-
-    static func registerLeafObjects(c: Container) -> Container {
+        // MARK: Leaf Objects
 
         c.register(Screenable.self) { r in
-            UIScreen.mainScreen()
-        }
+            screen()
+        }.inObjectScope(.Container)
 
         c.register(Windowable.self) { r in
             let screen = r.resolve(Screenable.self)!
-            return UIWindow(frame: screen.bounds)
-        }
+            return window(screen.bounds)
+        }.inObjectScope(.Container)
 
         c.register(DashboardPresenting.self) { r in
             let viewModel = r.resolve(DashboardViewModel.self)!
-            return DashboardViewController(viewModel: viewModel)
+            return dashboard(viewModel)
         }
 
         return c
