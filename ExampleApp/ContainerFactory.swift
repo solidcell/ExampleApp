@@ -6,7 +6,7 @@ class ContainerFactory {
     static func createContainer() -> Container {
         return self.registerServices(
             screen: { UIScreen.mainScreen() },
-            window: { bounds in UIWindow(frame: bounds) },
+            window: { bounds in Window(frame: bounds) },
             dashboard: { viewModel in DashboardViewController(viewModel: viewModel) },
             slideUp: { SlideUpViewController() }
         )

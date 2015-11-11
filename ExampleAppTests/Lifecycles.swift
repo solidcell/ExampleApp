@@ -25,7 +25,7 @@ class AppLifecycle {
 
 class ViewPresentingLifecycle {
     func appear(viewPresenting: ViewPresenting) {
-        viewPresenting.viewDidAppear()
+        viewPresenting.viewDidAppear(false)
         //....
     }
 }

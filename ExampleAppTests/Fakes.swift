@@ -22,37 +22,47 @@ class FakeWindow: Windowable {
     }
 }
 
-class FakeSlideUpPresenter: SlideUpPresenting {
-    var presentedViewPresenter: ViewPresenting?
+class FakeViewPresenter: ViewPresenting {
+    // TODO make this non-optional
+    let viewLifecycleNotified: ViewLifecycleNotified?
+    let viewPresentingLifecyle = ViewPresentingLifecycle()
 
-    var real: UIViewController {
-        fatalError("fakes should never be asked for a real representation")
+    init(viewLifecycleNotified: ViewLifecycleNotified?) {
+        self.viewLifecycleNotified = viewLifecycleNotified
     }
 
-    func viewDidAppear() {
+    func viewDidAppear(animated: Bool) {
+        self.viewLifecycleNotified?.viewDidAppear(animated)
+    }
+
+    var presentedViewPresenter: ViewPresenting?
+
+    func presentViewPresenter(viewPresenterToPresent: ViewPresenting) {
+        presentedViewPresenter = viewPresenterToPresent
+        viewPresentingLifecyle.appear(presentedViewPresenter!)
+    }
+
+    func presentViewPresenter(viewPresenterToPresent: ViewPresenting, animated _: Bool, completion _: (() -> Void)?) {
+        presentViewPresenter(viewPresenterToPresent)
+    }
+
+    var real: UIViewController {
+        fatalError()
     }
 }
 
-class FakeDashboardPresenter: DashboardPresenting {
+class FakeSlideUpPresenter: FakeViewPresenter, SlideUpPresenting {
+    init() {
+        super.init(viewLifecycleNotified: nil)
+    }
+}
+
+class FakeDashboardPresenter: FakeViewPresenter, DashboardPresenting {
     let viewModel: DashboardViewModel
-    var presentedViewPresenter: ViewPresenting?
 
     init(viewModel: DashboardViewModel) {
         self.viewModel = viewModel
-    }
-
-    var real: UIViewController {
-        // TODO is there a better solution?
-        fatalError("fakes should never be asked for a real representation")
-    }
-
-    // TODO view lifecycle methods should share viewModel calls/logic with the real impls
-    func viewDidAppear() {
-        viewModel.viewDidAppear()
-    }
-
-    func viewDidAppear(animated: Bool = false) {
-        return viewModel.viewDidAppear()
+        super.init(viewLifecycleNotified: viewModel)
     }
 
     var someThingOnThePage: String {
@@ -64,6 +74,6 @@ class FakeDashboardPresenter: DashboardPresenting {
     }
 
     func pushImportantModal(viewPresenter: ViewPresenting) {
-        presentedViewPresenter = viewPresenter
+        presentViewPresenter(viewPresenter)
     }
 }

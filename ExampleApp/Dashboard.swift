@@ -4,13 +4,26 @@ import Swinject
 protocol SlideUpPresenting: ViewPresenting {
 }
 
-class SlideUpViewController: UIViewController, SlideUpPresenting {
+class SlideUpViewController: ViewPresentingViewController, SlideUpPresenting {
+    init() {
+        super.init(viewLifecycleNotified: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
+    
     override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = UIColor.greenColor()
     }
 }
 
-class DashboardViewModel {
+class BaseViewLifecycleNotified: ViewLifecycleNotified {
+    func viewDidAppear(animated: Bool) {}
+}
+
+class DashboardViewModel: BaseViewLifecycleNotified {
     private let screen: Screenable
     // TODO binding wouldn't require knowing about the view presenter
     weak var presenter: DashboardPresenting?
@@ -29,7 +42,7 @@ class DashboardViewModel {
         return "i see your device size is \(screen.bounds.width)x\(screen.bounds.height)"
     }
 
-    func viewDidAppear() {
+    override func viewDidAppear(animated: Bool) {
         let slideUp = appContainer.resolve(SlideUpPresenting.self)!
         presenter?.pushImportantModal(slideUp)
     }
@@ -37,16 +50,15 @@ class DashboardViewModel {
 
 protocol DashboardPresenting: class, ViewPresenting {
     var viewModel: DashboardViewModel { get }
-    func viewDidAppear(animated: Bool)
     func pushImportantModal(viewPresenter: ViewPresenting)
 }
 
-class DashboardViewController: UIViewController, DashboardPresenting {
+class DashboardViewController: ViewPresentingViewController, DashboardPresenting {
     var viewModel: DashboardViewModel
 
     init(viewModel: DashboardViewModel) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init(viewLifecycleNotified: viewModel)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -57,7 +69,7 @@ class DashboardViewController: UIViewController, DashboardPresenting {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.blueColor()
-        
+
         let label = UILabel(frame: CGRectMake(0, 0, 200, 21))
         label.center = CGPointMake(160, 284)
         label.textAlignment = NSTextAlignment.Center
@@ -65,14 +77,7 @@ class DashboardViewController: UIViewController, DashboardPresenting {
         view.addSubview(label)
     }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-
-        viewModel.viewDidAppear()
-    }
-
     func pushImportantModal(viewPresenting: ViewPresenting) {
-        let vc = viewPresenting.real
-        presentViewController(vc, animated: true, completion: nil)
+        presentViewPresenter(viewPresenting, animated: true, completion: nil)
     }
 }

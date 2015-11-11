@@ -4,20 +4,39 @@ import UIKit
 
 protocol ViewPresenting {
     var real: UIViewController { get }
-    var presentedViewPresenter: ViewPresenting? { get }
-    func viewDidAppear()
+    func viewDidAppear(animated: Bool)
+    func presentViewPresenter(viewPresenterToPresent: ViewPresenting, animated flag: Bool, completion: (() -> Void)?)
 }
 
-extension UIViewController: ViewPresenting {
+protocol ViewLifecycleNotified {
+    func viewDidAppear(animated: Bool)
+}
+
+class ViewPresentingViewController: UIViewController, ViewPresenting {
+    let viewLifecycleNotified: ViewLifecycleNotified?
+
+    init(viewLifecycleNotified: ViewLifecycleNotified?) {
+        self.viewLifecycleNotified = viewLifecycleNotified
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
+
     var real: UIViewController {
         return self
     }
 
-    var presentedViewPresenter: ViewPresenting? {
-        return presentedViewController
+    func presentViewPresenter(viewPresenterToPresent: ViewPresenting, animated flag: Bool, completion: (() -> Void)?) {
+        let viewController = viewPresenterToPresent.real
+        presentViewController(viewController, animated: flag, completion: completion)
     }
 
-    func viewDidAppear() {
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        viewLifecycleNotified?.viewDidAppear(animated)
     }
 }
 
@@ -29,17 +48,14 @@ protocol Windowable {
     func makeKeyAndVisible()
 }
 
-extension UIWindow: Windowable {
+class Window: UIWindow, Windowable {
     var real: UIWindow {
         return self
     }
 
     var rootViewPresenter: ViewPresenting? {
-        set(newValue) {
-            self.rootViewController = newValue?.real
-        }
-        get {
-            return self.rootViewController
+        didSet {
+            rootViewController = rootViewPresenter?.real
         }
     }
 }
