@@ -19,10 +19,6 @@ class SlideUpViewController: ViewPresentingViewController, SlideUpPresenting {
     }
 }
 
-class BaseViewLifecycleNotified: ViewLifecycleNotified {
-    func viewDidAppear(animated: Bool) {}
-}
-
 class DashboardViewModel: BaseViewLifecycleNotified {
     private let screen: Screenable
     // TODO binding wouldn't require knowing about the view presenter

@@ -1,6 +1,12 @@
 import Foundation
 import Swinject
 
+/***********************
+ This the top level object of the shared object graph
+
+ It is created by either the AppDelegate or the tests.
+***********************/
+
 class AppProxy: NSObject {
     private let appContainer: Resolvable
     // TODO why does this need to be `var`?
@@ -24,5 +30,4 @@ class AppProxy: NSObject {
 
     func didBecomeActive() {
     }
-    
 }

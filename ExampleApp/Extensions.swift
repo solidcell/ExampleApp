@@ -1,17 +1,15 @@
 import UIKit
 
-// MARK: View Presenter
+/***********************
+ Leaf Objects - Real Implementations
+ 
+ These are the leaves of the object graph, representing sources of
+ input and output: view controllers, configurations, network libraries, etc.
+ 
+ These are replaced by fake implementations during tests
+***********************/
 
-protocol ViewPresenting {
-    var real: UIViewController { get }
-    func viewDidAppear(animated: Bool)
-    func presentViewPresenter(viewPresenterToPresent: ViewPresenting, animated flag: Bool, completion: (() -> Void)?)
-}
-
-protocol ViewLifecycleNotified {
-    func viewDidAppear(animated: Bool)
-}
-
+// abstract - Use this instead of UIViewController directly
 class ViewPresentingViewController: UIViewController, ViewPresenting {
     let viewLifecycleNotified: ViewLifecycleNotified?
 
@@ -40,14 +38,6 @@ class ViewPresentingViewController: UIViewController, ViewPresenting {
     }
 }
 
-// MARK: Window
-
-protocol Windowable {
-    var real: UIWindow { get }
-    var rootViewPresenter: ViewPresenting? { get set }
-    func makeKeyAndVisible()
-}
-
 class Window: UIWindow, Windowable {
     var real: UIWindow {
         return self
@@ -58,12 +48,6 @@ class Window: UIWindow, Windowable {
             rootViewController = rootViewPresenter?.real
         }
     }
-}
-
-// MARK: Screen
-
-protocol Screenable {
-    var bounds: CGRect { get }
 }
 
 extension UIScreen: Screenable {

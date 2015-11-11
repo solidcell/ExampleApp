@@ -3,6 +3,7 @@ import UIKit
 
 class ContainerFactory {
 
+    // This is the configuration for the real app
     static func createContainer() -> Container {
         return self.registerServices(
             screen: { UIScreen.mainScreen() },
@@ -12,6 +13,7 @@ class ContainerFactory {
         )
     }
 
+    // This is the configuration for the shared object graph
     static func registerServices(screen
         screen: () -> Screenable,
         window: (CGRect) -> Windowable,
@@ -21,7 +23,7 @@ class ContainerFactory {
     {
         let c = Container()
 
-        // MARK: Main Object Graph
+        // MARK: Shared Object Graph
 
         c.register(AppProxy.self) { r in
             let window = r.resolve(Windowable.self)!

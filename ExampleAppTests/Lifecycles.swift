@@ -1,6 +1,16 @@
 @testable import ExampleApp
 import Foundation
 
+/***********************
+ These are formalized implementations of life cycles that
+ occur external to the object graph:
+ 
+ * iOS sending messages to the AppDelegate (and thus, AppProxy)
+ * Lifecycle calls for ViewPresenting (fake "UIViewController")
+ * Current date
+ * Timers firing due to passage of said "current date"
+***********************/
+
 class AppLifecycle {
     let appProxy: AppProxy
 

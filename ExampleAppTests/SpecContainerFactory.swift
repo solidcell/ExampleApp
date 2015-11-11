@@ -2,6 +2,7 @@
 import Foundation
 import Swinject
 
+// This is the configuration for the specs
 class SpecContainerFactory {
 
     static func createContainer() -> Container {
