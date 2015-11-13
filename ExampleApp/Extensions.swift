@@ -10,10 +10,17 @@ import UIKit
 ***********************/
 
 class ViewPresenter: UIViewController {
-    // TODONOW can we do away with this somehow?
-    var internalPresentedViewController: UIViewController?
-    
+    // TODONOW can we do away with this somehow? It's needed for
+    // an extension in the specs since:
+    // an extension can't define new properties, needed because:
+    // an extension can't set presentedViewController [would be the best]
+    var vp_presentedViewController: UIViewController?
+
     let viewLifecycleNotified: ViewLifecycleNotified?
+
+    convenience init() {
+        self.init(viewLifecycleNotified: nil)
+    }
 
     init(viewLifecycleNotified: ViewLifecycleNotified?) {
         self.viewLifecycleNotified = viewLifecycleNotified

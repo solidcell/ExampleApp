@@ -2,34 +2,31 @@
 import UIKit
 
 /***********************
- Custom Leaf Objects - Fake Implementations
+ Leaf Objects - Fake Implementations
  
  These are the leaves of the object graph, representing sources of
  input and output: view controllers, configurations, network libraries, etc.
  
- These replace real implementations during tests, allowing us to:
-   * Remember inputs, so they can be asserted upon.
-   * Trigger outputs, faking external behavior.
+ These replace real implementations during tests
 ***********************/
 
-class FakeSlideUpPresenter: SlideUpViewController {
+class FakeScreen: Screenable {
+    var bounds = CGRect(x: 0, y: 0, width: 100, height: 150)
 }
 
-class FakeDashboardPresenter: DashboardViewController {
-    var someThingOnThePage: String {
-        return viewModel.mainLabelString
+class FakeWindow: Windowable {
+    let viewLifecycle = ViewLifecycle()
+
+    var rootViewController: UIViewController? {
+        didSet {
+            viewLifecycle.appear(rootViewController!)
+        }
+    }
+    
+    func makeKeyAndVisible() {
     }
 
-    var deviceRemark: String {
-        return viewModel.deviceRemark
-    }
-}
-
-extension ViewPresenter {
-    override var presentedViewController: UIViewController? {
-        return internalPresentedViewController
-    }
-    override public func presentViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
-        internalPresentedViewController = viewControllerToPresent
+    var real: UIWindow {
+        fatalError("fakes should never be asked for a real representation")
     }
 }

@@ -33,9 +33,9 @@ class AppLifecycle {
 }
 
 // TODONOW rename
-class ViewPresentingLifecycle {
+class ViewLifecycle {
     func appear(viewController: UIViewController) {
         viewController.viewDidAppear(false)
-        //....
+        viewController.viewDidLoad()
     }
 }

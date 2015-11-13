@@ -13,6 +13,7 @@ import Swinject
  you to start and control the app in the same manner as iOS does.
 ***********************/
 
+// TODO consider using AppDelegate only, again
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?

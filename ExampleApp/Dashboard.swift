@@ -1,27 +1,8 @@
 import UIKit
 import Swinject
 
-protocol SlideUpPresenting {
-}
-
-class SlideUpViewController: ViewPresenter, SlideUpPresenting {
-    init() {
-        super.init(viewLifecycleNotified: nil)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = UIColor.greenColor()
-    }
-}
-
 class DashboardViewModel: BaseViewLifecycleNotified {
     private let screen: Screenable
-    // TODO binding wouldn't require knowing about the view presenter
     weak var presenter: DashboardViewController?
     let appContainer: Resolvable
 
@@ -39,19 +20,12 @@ class DashboardViewModel: BaseViewLifecycleNotified {
     }
 
     override func viewDidAppear(animated: Bool) {
-        // TODONOW
-//        let slideUp = appContainer.resolve(SlideUpViewController)!
-        let slideUp = SlideUpViewController()
+        let slideUp = appContainer.resolve(SlideUpViewController.self)!
         presenter?.pushImportantModal(slideUp)
     }
 }
 
-protocol DashboardPresenting {
-    var viewModel: DashboardViewModel { get }
-    func pushImportantModal(viewPresenter: ViewPresenter)
-}
-
-class DashboardViewController: ViewPresenter, DashboardPresenting {
+class DashboardViewController: ViewPresenter {
     var viewModel: DashboardViewModel
 
     init(viewModel: DashboardViewModel) {
@@ -77,5 +51,13 @@ class DashboardViewController: ViewPresenter, DashboardPresenting {
 
     func pushImportantModal(viewPresenter: ViewPresenter) {
         presentViewController(viewPresenter, animated: true, completion: nil)
+    }
+}
+
+class SlideUpViewController: ViewPresenter {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = UIColor.greenColor()
     }
 }
