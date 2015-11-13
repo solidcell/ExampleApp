@@ -13,15 +13,9 @@ class BaseViewLifecycleNotified: ViewLifecycleNotified {
 
 //MARK: Leaf Node Protocols
 
-protocol ViewPresenting {
-    var real: UIViewController { get }
-    func viewDidAppear(animated: Bool)
-    func presentViewPresenter(viewPresenterToPresent: ViewPresenting, animated flag: Bool, completion: (() -> Void)?)
-}
-
 protocol Windowable {
     var real: UIWindow { get }
-    var rootViewPresenter: ViewPresenting? { get set }
+    var rootViewController: UIViewController? { get set }
     func makeKeyAndVisible()
 }
 

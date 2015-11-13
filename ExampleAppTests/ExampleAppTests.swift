@@ -20,18 +20,18 @@ class ExampleAppTests: XCTestCase {
         appLifecycle.bootApp()
         XCTAssert(fakeDashboard.someThingOnThePage == "sth from the viewModel")
         XCTAssert(fakeDashboard.deviceRemark == "i see your device size is 100.0x150.0")
-        let _ = fakeSlideUp // to test for now that there is a fake slide up at the forefront
+        let _ = slideUp // to test for now that there is a fake slide up at the forefront
     }
 
     var fakeWindow: Windowable {
-        return appProxy.window as! FakeWindow
+        return appProxy.window
     }
 
     var fakeDashboard: FakeDashboardPresenter {
-        return fakeWindow.rootViewPresenter as! FakeDashboardPresenter
+        return fakeWindow.rootViewController as! FakeDashboardPresenter
     }
 
-    var fakeSlideUp: FakeSlideUpPresenter {
-        return fakeDashboard.presentedViewPresenter as! FakeSlideUpPresenter
+    var slideUp: SlideUpViewController {
+        return fakeDashboard.presentedViewController as! SlideUpViewController
     }
 }

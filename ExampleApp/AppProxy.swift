@@ -18,8 +18,8 @@ class AppProxy: NSObject {
     }
 
     func willFinishLaunchingWithOptions() -> Bool {
-        let dashboard = appContainer.resolve(DashboardPresenting.self)
-        window.rootViewPresenter = dashboard
+        let dashboard = appContainer.resolve(DashboardViewController.self)
+        window.rootViewController = dashboard
         window.makeKeyAndVisible()
         return true
     }

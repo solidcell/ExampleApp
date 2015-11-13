@@ -1,10 +1,10 @@
 import UIKit
 import Swinject
 
-protocol SlideUpPresenting: ViewPresenting {
+protocol SlideUpPresenting {
 }
 
-class SlideUpViewController: ViewPresentingViewController, SlideUpPresenting {
+class SlideUpViewController: ViewPresenter, SlideUpPresenting {
     init() {
         super.init(viewLifecycleNotified: nil)
     }
@@ -22,7 +22,7 @@ class SlideUpViewController: ViewPresentingViewController, SlideUpPresenting {
 class DashboardViewModel: BaseViewLifecycleNotified {
     private let screen: Screenable
     // TODO binding wouldn't require knowing about the view presenter
-    weak var presenter: DashboardPresenting?
+    weak var presenter: DashboardViewController?
     let appContainer: Resolvable
 
     init(appContainer: Resolvable, screen: Screenable) {
@@ -39,17 +39,19 @@ class DashboardViewModel: BaseViewLifecycleNotified {
     }
 
     override func viewDidAppear(animated: Bool) {
-        let slideUp = appContainer.resolve(SlideUpPresenting.self)!
+        // TODONOW
+//        let slideUp = appContainer.resolve(SlideUpViewController)!
+        let slideUp = SlideUpViewController()
         presenter?.pushImportantModal(slideUp)
     }
 }
 
-protocol DashboardPresenting: class, ViewPresenting {
+protocol DashboardPresenting {
     var viewModel: DashboardViewModel { get }
-    func pushImportantModal(viewPresenter: ViewPresenting)
+    func pushImportantModal(viewPresenter: ViewPresenter)
 }
 
-class DashboardViewController: ViewPresentingViewController, DashboardPresenting {
+class DashboardViewController: ViewPresenter, DashboardPresenting {
     var viewModel: DashboardViewModel
 
     init(viewModel: DashboardViewModel) {
@@ -73,7 +75,7 @@ class DashboardViewController: ViewPresentingViewController, DashboardPresenting
         view.addSubview(label)
     }
 
-    func pushImportantModal(viewPresenting: ViewPresenting) {
-        presentViewPresenter(viewPresenting, animated: true, completion: nil)
+    func pushImportantModal(viewPresenter: ViewPresenter) {
+        presentViewController(viewPresenter, animated: true, completion: nil)
     }
 }

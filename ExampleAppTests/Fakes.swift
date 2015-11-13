@@ -1,4 +1,5 @@
 @testable import ExampleApp
+import UIKit
 
 /***********************
  Custom Leaf Objects - Fake Implementations
@@ -11,20 +12,10 @@
    * Trigger outputs, faking external behavior.
 ***********************/
 
-class FakeSlideUpPresenter: FakeViewPresenter, SlideUpPresenting {
-    init() {
-        super.init(viewLifecycleNotified: nil)
-    }
+class FakeSlideUpPresenter: SlideUpViewController {
 }
 
-class FakeDashboardPresenter: FakeViewPresenter, DashboardPresenting {
-    let viewModel: DashboardViewModel
-
-    init(viewModel: DashboardViewModel) {
-        self.viewModel = viewModel
-        super.init(viewLifecycleNotified: viewModel)
-    }
-
+class FakeDashboardPresenter: DashboardViewController {
     var someThingOnThePage: String {
         return viewModel.mainLabelString
     }
@@ -32,8 +23,13 @@ class FakeDashboardPresenter: FakeViewPresenter, DashboardPresenting {
     var deviceRemark: String {
         return viewModel.deviceRemark
     }
+}
 
-    func pushImportantModal(viewPresenter: ViewPresenting) {
-        presentViewPresenter(viewPresenter)
+extension ViewPresenter {
+    override var presentedViewController: UIViewController? {
+        return internalPresentedViewController
+    }
+    override public func presentViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
+        internalPresentedViewController = viewControllerToPresent
     }
 }

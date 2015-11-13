@@ -17,7 +17,7 @@ class ContainerFactory {
     static func registerServices(screen
         screen: () -> Screenable,
         window: (CGRect) -> Windowable,
-        dashboard: (DashboardViewModel) -> DashboardPresenting,
+        dashboard: (DashboardViewModel) -> DashboardViewController,
         slideUp: () -> SlideUpPresenting
         ) -> Container
     {
@@ -46,7 +46,7 @@ class ContainerFactory {
             return window(screen.bounds)
         }.inObjectScope(.Container)
 
-        c.register(DashboardPresenting.self) { r in
+        c.register(DashboardViewController.self) { r in
             let viewModel = r.resolve(DashboardViewModel.self)!
             let dashboard = dashboard(viewModel)
             // TODO breaking law of demeter

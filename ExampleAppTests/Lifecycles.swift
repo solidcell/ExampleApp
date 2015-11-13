@@ -1,5 +1,5 @@
 @testable import ExampleApp
-import Foundation
+import UIKit
 
 /***********************
  These are formalized implementations of life cycles that
@@ -32,9 +32,10 @@ class AppLifecycle {
     }
 }
 
+// TODONOW rename
 class ViewPresentingLifecycle {
-    func appear(viewPresenting: ViewPresenting) {
-        viewPresenting.viewDidAppear(false)
+    func appear(viewController: UIViewController) {
+        viewController.viewDidAppear(false)
         //....
     }
 }
