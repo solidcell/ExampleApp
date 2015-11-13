@@ -6,7 +6,9 @@
  These are the leaves of the object graph, representing sources of
  input and output: view controllers, configurations, network libraries, etc.
  
- These replace real implementations during tests
+ These replace real implementations during tests, allowing us to:
+   * Remember inputs, so they can be asserted upon.
+   * Trigger outputs, faking external behavior.
 ***********************/
 
 class FakeSlideUpPresenter: FakeViewPresenter, SlideUpPresenting {

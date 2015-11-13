@@ -7,8 +7,7 @@ import Foundation
  
  * iOS sending messages to the AppDelegate (and thus, AppProxy)
  * Lifecycle calls for ViewPresenting (fake "UIViewController")
- * Current date
- * Timers firing due to passage of said "current date"
+ * Timers firing due to passage of "time"
 ***********************/
 
 class AppLifecycle {
