@@ -16,7 +16,7 @@
 		88ADFA231BEB3637008C5180 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88ADFA211BEB3637008C5180 /* LaunchScreen.storyboard */; };
 		88ADFA2E1BEB3637008C5180 /* ExampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA2D1BEB3637008C5180 /* ExampleAppTests.swift */; };
 		88ADFA3A1BEB3B18008C5180 /* AppProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA391BEB3B18008C5180 /* AppProxy.swift */; };
-		88ADFA3E1BEB3EAB008C5180 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA3D1BEB3EAB008C5180 /* Extensions.swift */; };
+		88ADFA3E1BEB3EAB008C5180 /* SpecExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA3D1BEB3EAB008C5180 /* SpecExtensions.swift */; };
 		88ADFA461BEB46B0008C5180 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA451BEB46B0008C5180 /* Dashboard.swift */; };
 		88ADFA501BEC509C008C5180 /* ContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA4F1BEC509C008C5180 /* ContainerFactory.swift */; };
 		88D3C09C1BEF1E2900A97E4B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3C09B1BEF1E2900A97E4B /* main.swift */; };
@@ -62,7 +62,7 @@
 		88ADFA2D1BEB3637008C5180 /* ExampleAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleAppTests.swift; sourceTree = "<group>"; };
 		88ADFA2F1BEB3637008C5180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88ADFA391BEB3B18008C5180 /* AppProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppProxy.swift; sourceTree = "<group>"; };
-		88ADFA3D1BEB3EAB008C5180 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		88ADFA3D1BEB3EAB008C5180 /* SpecExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecExtensions.swift; sourceTree = "<group>"; };
 		88ADFA451BEB46B0008C5180 /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		88ADFA4F1BEC509C008C5180 /* ContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerFactory.swift; sourceTree = "<group>"; };
 		88D3C09B1BEF1E2900A97E4B /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -129,11 +129,11 @@
 		88ADFA2C1BEB3637008C5180 /* ExampleAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				88ADFA2D1BEB3637008C5180 /* ExampleAppTests.swift */,
-				8871B7981BF07FE5009563DF /* Lifecycles.swift */,
 				88F71A3B1BF001B900323556 /* SpecContainerFactory.swift */,
 				88331EBA1BF3022F0060495A /* Fakes.swift */,
-				88ADFA3D1BEB3EAB008C5180 /* Extensions.swift */,
+				88ADFA2D1BEB3637008C5180 /* ExampleAppTests.swift */,
+				8871B7981BF07FE5009563DF /* Lifecycles.swift */,
+				88ADFA3D1BEB3EAB008C5180 /* SpecExtensions.swift */,
 				88ADFA2F1BEB3637008C5180 /* Info.plist */,
 			);
 			path = ExampleAppTests;
@@ -281,7 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88ADFA3E1BEB3EAB008C5180 /* Extensions.swift in Sources */,
+				88ADFA3E1BEB3EAB008C5180 /* SpecExtensions.swift in Sources */,
 				88ADFA2E1BEB3637008C5180 /* ExampleAppTests.swift in Sources */,
 				8871B7991BF07FE5009563DF /* Lifecycles.swift in Sources */,
 				88331EBB1BF3022F0060495A /* Fakes.swift in Sources */,

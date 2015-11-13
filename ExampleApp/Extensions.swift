@@ -34,6 +34,7 @@ class ViewPresenter: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
+        // TODO consider order: VC, UIVC, and VM
         viewLifecycleNotified?.viewDidAppear(animated)
     }
 }
