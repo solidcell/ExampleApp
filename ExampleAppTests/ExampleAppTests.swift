@@ -25,6 +25,7 @@ class ExampleAppTests: XCTestCase {
         XCTAssert(slideUp.mainLabelText == "you clicked the button 1 time")
         slideUp.tapShinyButton()
         XCTAssert(slideUp.mainLabelText == "you clicked the button 2 times")
+        slideUp.tapDoneButton()
     }
 
     var fakeWindow: Windowable {

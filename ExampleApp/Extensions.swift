@@ -18,6 +18,7 @@ class ViewPresenter: UIViewController {
     // an extension can't define new properties, needed because:
     // an extension can't set presentedViewController [would be the best]
     var vp_presentedViewPresenter: ViewPresenter?
+    weak var vp_presentingViewPresenter: ViewPresenter?
 }
 
 class Window: UIWindow, Windowable {

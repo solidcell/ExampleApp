@@ -18,7 +18,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mainLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNh-lV-58Y">
                     <rect key="frame" x="261" y="115" width="78.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MlG-hB-YIQ">
@@ -28,13 +28,22 @@
                         <action selector="didTapShinyButton:" destination="-1" eventType="touchUpInside" id="QbZ-qe-2dp"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeY-Xl-2Nx">
+                    <rect key="frame" x="282" y="285" width="37" height="30"/>
+                    <state key="normal" title="Done"/>
+                    <connections>
+                        <action selector="didTapDoneButton:" destination="-1" eventType="touchUpInside" id="iz7-Uf-0OF"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="MlG-hB-YIQ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="GOB-oY-D6x"/>
+                <constraint firstItem="PeY-Xl-2Nx" firstAttribute="top" secondItem="MlG-hB-YIQ" secondAttribute="bottom" constant="37" id="I5W-Xd-ksC"/>
                 <constraint firstItem="QNh-lV-58Y" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ju3-Dt-Naj"/>
                 <constraint firstItem="MlG-hB-YIQ" firstAttribute="top" secondItem="QNh-lV-58Y" secondAttribute="bottom" constant="83" id="gNd-Fn-2Ub"/>
                 <constraint firstItem="QNh-lV-58Y" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="115" id="iPG-73-K1p"/>
+                <constraint firstItem="PeY-Xl-2Nx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="xeL-CQ-csS"/>
             </constraints>
         </view>
     </objects>

@@ -26,6 +26,10 @@ class SlideUpViewController: ViewPresenter {
         mainLabel.text = viewModel.clickCountText
     }
 
+    @IBAction func didTapDoneButton(sender: AnyObject) {
+        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.greenColor()

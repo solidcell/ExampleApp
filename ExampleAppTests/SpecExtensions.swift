@@ -31,6 +31,10 @@ extension SlideUpViewController {
     func tapShinyButton() {
         didTapShinyButton(BogusSender())
     }
+
+    func tapDoneButton() {
+        didTapDoneButton(BogusSender())
+    }
 }
 
 extension ViewPresenter {
@@ -41,10 +45,21 @@ extension ViewPresenter {
     override var presentedViewController: UIViewController? {
         return vp_presentedViewPresenter
     }
+    override var presentingViewController: UIViewController? {
+        return vp_presentingViewPresenter
+    }
     override func presentViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
         if let viewPresenterToPresent = viewControllerToPresent as? ViewPresenter {
             vp_presentedViewPresenter = viewPresenterToPresent
             viewLifecycle.appear(viewPresenterToPresent)
+            viewPresenterToPresent.vp_presentingViewPresenter = self
+        }
+    }
+    override func dismissViewControllerAnimated(flag: Bool, completion: (() -> Void)?) {
+        if let presentedViewPresenter = vp_presentedViewPresenter {
+            vp_presentedViewPresenter = nil
+            viewLifecycle.disappear(presentedViewPresenter)
+            presentedViewPresenter.vp_presentingViewPresenter = nil
         }
     }
 }

@@ -38,6 +38,10 @@ class ViewLifecycle {
         viewController.viewDidAppear(false)
     }
 
+    func disappear(viewController: UIViewController) {
+        //
+    }
+
     private func loadView(viewController: UIViewController) {
         // load the view and call viewDidLoad
         var _ = viewController.view
