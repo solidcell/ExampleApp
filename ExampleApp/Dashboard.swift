@@ -19,7 +19,7 @@ class DashboardViewModel {
         return "i see your device size is \(screen.bounds.width)x\(screen.bounds.height)"
     }
 
-    func viewDidAppear() {
+    func didTapSlideUpButton() {
         let slideUp = appContainer.resolve(SlideUpViewController.self)!
         presenter?.pushImportantModal(slideUp)
     }
@@ -27,6 +27,10 @@ class DashboardViewModel {
 
 class DashboardViewController: ViewPresenter {
     var viewModel: DashboardViewModel
+
+    @IBAction func didTapSlideUpButton(sender: AnyObject) {
+        viewModel.didTapSlideUpButton()
+    }
 
     init(viewModel: DashboardViewModel) {
         self.viewModel = viewModel
@@ -40,18 +44,7 @@ class DashboardViewController: ViewPresenter {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.blueColor()
-
-        let label = UILabel(frame: CGRectMake(0, 0, 200, 21))
-        label.center = CGPointMake(160, 284)
-        label.textAlignment = NSTextAlignment.Center
-        label.text = viewModel.mainLabelString
-        view.addSubview(label)
-    }
-
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        viewModel.viewDidAppear()
+        view.backgroundColor = UIColor.grayColor()
     }
 
     func pushImportantModal(viewPresenter: ViewPresenter) {

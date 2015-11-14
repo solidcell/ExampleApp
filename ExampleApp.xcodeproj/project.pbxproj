@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		880253831BF7FBB7001DEE93 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 880253821BF7FBB7001DEE93 /* DashboardViewController.xib */; };
 		8824EAC81BF7B09B000F4F5D /* SlideUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8824EAC71BF7B09B000F4F5D /* SlideUpViewController.xib */; };
 		8824EACA1BF7B9B2000F4F5D /* SlideUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8824EAC91BF7B9B2000F4F5D /* SlideUp.swift */; };
 		88331EB91BF301A40060495A /* Framework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88331EB81BF301A40060495A /* Framework.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		880253821BF7FBB7001DEE93 /* DashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		8824EAC71BF7B09B000F4F5D /* SlideUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideUpViewController.xib; sourceTree = "<group>"; };
 		8824EAC91BF7B9B2000F4F5D /* SlideUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideUp.swift; sourceTree = "<group>"; };
 		88331EB81BF301A40060495A /* Framework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Framework.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				88ADFA391BEB3B18008C5180 /* AppProxy.swift */,
 				88ADFA451BEB46B0008C5180 /* Dashboard.swift */,
 				8824EAC91BF7B9B2000F4F5D /* SlideUp.swift */,
+				880253821BF7FBB7001DEE93 /* DashboardViewController.xib */,
 				8824EAC71BF7B09B000F4F5D /* SlideUpViewController.xib */,
 				88ADFA241BEB3637008C5180 /* Info.plist */,
 				88ADFA1F1BEB3637008C5180 /* Assets.xcassets */,
@@ -239,6 +242,7 @@
 				88ADFA231BEB3637008C5180 /* LaunchScreen.storyboard in Resources */,
 				88ADFA201BEB3637008C5180 /* Assets.xcassets in Resources */,
 				8824EAC81BF7B09B000F4F5D /* SlideUpViewController.xib in Resources */,
+				880253831BF7FBB7001DEE93 /* DashboardViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

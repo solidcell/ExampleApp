@@ -13,26 +13,34 @@ import UIKit
 extension DashboardViewController {
 
     var somethingOnThePage: String {
+        assertVisible()
         return viewModel.mainLabelString
     }
 
     var deviceRemark: String {
+        assertVisible()
         return viewModel.deviceRemark
+    }
+
+    func tapSlideUpButton() {
+        assertVisible()
+        didTapSlideUpButton(BogusSender())
     }
 }
 
-class BogusSender { }
-
 extension SlideUpViewController {
     var mainLabelText: String? {
+        assertVisible()
         return mainLabel.text
     }
 
     func tapShinyButton() {
+        assertVisible()
         didTapShinyButton(BogusSender())
     }
 
     func tapDoneButton() {
+        assertVisible()
         didTapDoneButton(BogusSender())
     }
 }
@@ -40,6 +48,14 @@ extension SlideUpViewController {
 extension ViewPresenter {
     var viewLifecycle: ViewLifecycle {
         return ViewLifecycle()
+    }
+
+    func assertVisible() {
+        assert(visible, "This action is invalid because the view is not visible")
+    }
+
+    var visible: Bool {
+        return vp_presentedViewPresenter == nil
     }
 
     override var presentedViewController: UIViewController? {
@@ -63,3 +79,5 @@ extension ViewPresenter {
         }
     }
 }
+
+class BogusSender { }

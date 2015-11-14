@@ -1,6 +1,7 @@
 import UIKit
 
 class SlideUpViewModel {
+
     private var clickCount = 0
 
     private var possiblyPluralS: String {
@@ -21,6 +22,7 @@ class SlideUpViewController: ViewPresenter {
     let viewModel = SlideUpViewModel()
 
     @IBOutlet weak var mainLabel: UILabel!
+
     @IBAction func didTapShinyButton(sender: AnyObject) {
         viewModel.didClick()
         mainLabel.text = viewModel.clickCountText

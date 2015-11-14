@@ -16,16 +16,20 @@ class ExampleAppTests: XCTestCase {
         appLifecycle = AppLifecycle(appProxy: appProxy)
     }
 
-    func testAppCanLaunch() {
+    func testLotsOfStuff() {
         appLifecycle.bootApp()
+        XCTAssert(dashboard.visible)
         XCTAssert(dashboard.somethingOnThePage == "sth from the viewModel")
         XCTAssert(dashboard.deviceRemark == "i see your device size is 100.0x150.0")
+        dashboard.tapSlideUpButton()
         XCTAssert(slideUp.mainLabelText == "you clicked the button 0 times")
         slideUp.tapShinyButton()
         XCTAssert(slideUp.mainLabelText == "you clicked the button 1 time")
         slideUp.tapShinyButton()
         XCTAssert(slideUp.mainLabelText == "you clicked the button 2 times")
+        XCTAssert(!dashboard.visible)
         slideUp.tapDoneButton()
+        XCTAssert(dashboard.visible)
     }
 
     var fakeWindow: Windowable {
