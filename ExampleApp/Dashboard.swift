@@ -1,7 +1,7 @@
 import UIKit
 import Swinject
 
-class DashboardViewModel: BaseViewLifecycleNotified {
+class DashboardViewModel {
     private let screen: Screenable
     weak var presenter: DashboardViewController?
     let appContainer: Resolvable
@@ -19,7 +19,7 @@ class DashboardViewModel: BaseViewLifecycleNotified {
         return "i see your device size is \(screen.bounds.width)x\(screen.bounds.height)"
     }
 
-    override func viewDidAppear(animated: Bool) {
+    func viewDidAppear() {
         let slideUp = appContainer.resolve(SlideUpViewController.self)!
         presenter?.pushImportantModal(slideUp)
     }
@@ -30,7 +30,7 @@ class DashboardViewController: ViewPresenter {
 
     init(viewModel: DashboardViewModel) {
         self.viewModel = viewModel
-        super.init(viewLifecycleNotified: viewModel)
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -47,6 +47,11 @@ class DashboardViewController: ViewPresenter {
         label.textAlignment = NSTextAlignment.Center
         label.text = viewModel.mainLabelString
         view.addSubview(label)
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.viewDidAppear()
     }
 
     func pushImportantModal(viewPresenter: ViewPresenter) {
