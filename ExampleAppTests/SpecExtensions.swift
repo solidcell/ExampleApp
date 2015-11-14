@@ -39,10 +39,12 @@ extension ViewPresenter {
     }
 
     override var presentedViewController: UIViewController? {
-        return vp_presentedViewController
+        return vp_presentedViewPresenter
     }
     override func presentViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
-        vp_presentedViewController = viewControllerToPresent
-        viewLifecycle.appear(viewControllerToPresent)
+        if let viewPresenterToPresent = viewControllerToPresent as? ViewPresenter {
+            vp_presentedViewPresenter = viewPresenterToPresent
+            viewLifecycle.appear(viewPresenterToPresent)
+        }
     }
 }
