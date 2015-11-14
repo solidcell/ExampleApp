@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8824EAC81BF7B09B000F4F5D /* SlideUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8824EAC71BF7B09B000F4F5D /* SlideUpViewController.xib */; };
 		88331EB91BF301A40060495A /* Framework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88331EB81BF301A40060495A /* Framework.swift */; };
 		88331EBB1BF3022F0060495A /* Fakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88331EBA1BF3022F0060495A /* Fakes.swift */; };
 		8869C7C71BEFC3CF00BCD34C /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8869C7C51BEFC3CF00BCD34C /* Swinject.framework */; };
@@ -48,6 +49,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8824EAC71BF7B09B000F4F5D /* SlideUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideUpViewController.xib; sourceTree = "<group>"; };
 		88331EB81BF301A40060495A /* Framework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Framework.swift; sourceTree = "<group>"; };
 		88331EBA1BF3022F0060495A /* Fakes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fakes.swift; sourceTree = "<group>"; };
 		8869C7C51BEFC3CF00BCD34C /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				88F71A371BEFFB2D00323556 /* Extensions.swift */,
 				88ADFA391BEB3B18008C5180 /* AppProxy.swift */,
 				88ADFA451BEB46B0008C5180 /* Dashboard.swift */,
+				8824EAC71BF7B09B000F4F5D /* SlideUpViewController.xib */,
 				88ADFA241BEB3637008C5180 /* Info.plist */,
 				88ADFA1F1BEB3637008C5180 /* Assets.xcassets */,
 				88ADFA211BEB3637008C5180 /* LaunchScreen.storyboard */,
@@ -232,6 +235,7 @@
 			files = (
 				88ADFA231BEB3637008C5180 /* LaunchScreen.storyboard in Resources */,
 				88ADFA201BEB3637008C5180 /* Assets.xcassets in Resources */,
+				8824EAC81BF7B09B000F4F5D /* SlideUpViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

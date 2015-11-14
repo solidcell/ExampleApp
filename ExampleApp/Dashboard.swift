@@ -55,6 +55,9 @@ class DashboardViewController: ViewPresenter {
 }
 
 class SlideUpViewController: ViewPresenter {
+    @IBOutlet weak var mainLabel: UILabel!
+    @IBAction func didTapShinyButton(sender: AnyObject) {
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
