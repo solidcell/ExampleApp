@@ -21,12 +21,23 @@ extension DashboardViewController {
     }
 }
 
+extension SlideUpViewController {
+
+    var mainLabelText: String? {
+        return mainLabel.text
+    }
+}
+
 extension ViewPresenter {
+    var viewLifecycle: ViewLifecycle {
+        return ViewLifecycle()
+    }
 
     override var presentedViewController: UIViewController? {
         return vp_presentedViewController
     }
     override func presentViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
         vp_presentedViewController = viewControllerToPresent
+        viewLifecycle.appear(viewControllerToPresent)
     }
 }

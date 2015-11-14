@@ -34,7 +34,12 @@ class AppLifecycle {
 
 class ViewLifecycle {
     func appear(viewController: UIViewController) {
+        loadView(viewController)
         viewController.viewDidAppear(false)
-        viewController.viewDidLoad()
+    }
+
+    private func loadView(viewController: UIViewController) {
+        // load the view and call viewDidLoad
+        var _ = viewController.view
     }
 }

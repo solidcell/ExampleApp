@@ -20,7 +20,7 @@ class ExampleAppTests: XCTestCase {
         appLifecycle.bootApp()
         XCTAssert(dashboard.somethingOnThePage == "sth from the viewModel")
         XCTAssert(dashboard.deviceRemark == "i see your device size is 100.0x150.0")
-        let _ = slideUp // to test for now that there is a fake slide up at the forefront
+        XCTAssert(slideUp.mainLabelText == "mainLabel")
     }
 
     var fakeWindow: Windowable {
