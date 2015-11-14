@@ -21,6 +21,8 @@ class ExampleAppTests: XCTestCase {
         XCTAssert(dashboard.somethingOnThePage == "sth from the viewModel")
         XCTAssert(dashboard.deviceRemark == "i see your device size is 100.0x150.0")
         XCTAssert(slideUp.mainLabelText == "mainLabel")
+        slideUp.tapShinyButton()
+        XCTAssert(slideUp.mainLabelText == "you clicked the button 1 time")
     }
 
     var fakeWindow: Windowable {

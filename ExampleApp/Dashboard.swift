@@ -53,14 +53,3 @@ class DashboardViewController: ViewPresenter {
         presentViewController(viewPresenter, animated: true, completion: nil)
     }
 }
-
-class SlideUpViewController: ViewPresenter {
-    @IBOutlet weak var mainLabel: UILabel!
-    @IBAction func didTapShinyButton(sender: AnyObject) {
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = UIColor.greenColor()
-    }
-}

@@ -21,10 +21,15 @@ extension DashboardViewController {
     }
 }
 
-extension SlideUpViewController {
+class BogusSender { }
 
+extension SlideUpViewController {
     var mainLabelText: String? {
         return mainLabel.text
+    }
+
+    func tapShinyButton() {
+        didTapShinyButton(BogusSender())
     }
 }
 
