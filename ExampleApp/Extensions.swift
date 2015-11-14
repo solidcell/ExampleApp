@@ -16,6 +16,12 @@ class ViewPresenter: UIViewController {
     // an extension can't set presentedViewController [would be the best]
     var vp_presentedViewController: UIViewController?
 
+    // TODONOW remove this concept from the framework.
+    // It's unneeded since there are no longer any fake view presenters
+    // that need to ensure common functionality. Now view presenters are free
+    // to do whatever.
+    // TODONOW consider if this class is needed at all, since we could
+    // override UIViewController lifecycle methods with an extension
     let viewLifecycleNotified: ViewLifecycleNotified?
 
     convenience init() {
