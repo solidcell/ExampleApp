@@ -22,13 +22,14 @@
 		88ADFA3E1BEB3EAB008C5180 /* SpecExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA3D1BEB3EAB008C5180 /* SpecExtensions.swift */; };
 		88ADFA461BEB46B0008C5180 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA451BEB46B0008C5180 /* Dashboard.swift */; };
 		88ADFA501BEC509C008C5180 /* ContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA4F1BEC509C008C5180 /* ContainerFactory.swift */; };
+		88B01B4C1BFBE89700E34547 /* BaseClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B01B4B1BFBE89700E34547 /* BaseClasses.swift */; };
 		88D3C09C1BEF1E2900A97E4B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3C09B1BEF1E2900A97E4B /* main.swift */; };
 		88F71A381BEFFB2D00323556 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F71A371BEFFB2D00323556 /* Extensions.swift */; };
 		88F71A3C1BF001B900323556 /* SpecContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F71A3B1BF001B900323556 /* SpecContainerFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		88ADFA2A1BEB3637008C5180 /* PBXContainerItemProxy */ = {
+		88B01B561BFBF95D00E34547 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 88ADFA0D1BEB3637008C5180 /* Project object */;
 			proxyType = 1;
@@ -71,6 +72,7 @@
 		88ADFA3D1BEB3EAB008C5180 /* SpecExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecExtensions.swift; sourceTree = "<group>"; };
 		88ADFA451BEB46B0008C5180 /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		88ADFA4F1BEC509C008C5180 /* ContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerFactory.swift; sourceTree = "<group>"; };
+		88B01B4B1BFBE89700E34547 /* BaseClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseClasses.swift; sourceTree = "<group>"; };
 		88D3C09B1BEF1E2900A97E4B /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		88F71A371BEFFB2D00323556 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		88F71A3B1BF001B900323556 /* SpecContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecContainerFactory.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				88ADFA4F1BEC509C008C5180 /* ContainerFactory.swift */,
 				88331EB81BF301A40060495A /* Framework.swift */,
 				88F71A371BEFFB2D00323556 /* Extensions.swift */,
+				88B01B4B1BFBE89700E34547 /* BaseClasses.swift */,
 				88ADFA391BEB3B18008C5180 /* AppProxy.swift */,
 				88ADFA451BEB46B0008C5180 /* Dashboard.swift */,
 				8824EAC91BF7B9B2000F4F5D /* SlideUp.swift */,
@@ -189,7 +192,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				88ADFA2B1BEB3637008C5180 /* PBXTargetDependency */,
+				88B01B571BFBF95D00E34547 /* PBXTargetDependency */,
 			);
 			name = ExampleAppTests;
 			productName = ExampleAppTests;
@@ -285,6 +288,7 @@
 				88ADFA191BEB3637008C5180 /* AppDelegate.swift in Sources */,
 				88ADFA501BEC509C008C5180 /* ContainerFactory.swift in Sources */,
 				8824EACA1BF7B9B2000F4F5D /* SlideUp.swift in Sources */,
+				88B01B4C1BFBE89700E34547 /* BaseClasses.swift in Sources */,
 				88ADFA3A1BEB3B18008C5180 /* AppProxy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,10 +308,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		88ADFA2B1BEB3637008C5180 /* PBXTargetDependency */ = {
+		88B01B571BFBF95D00E34547 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 88ADFA141BEB3637008C5180 /* ExampleApp */;
-			targetProxy = 88ADFA2A1BEB3637008C5180 /* PBXContainerItemProxy */;
+			targetProxy = 88B01B561BFBF95D00E34547 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

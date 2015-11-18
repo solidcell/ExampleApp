@@ -10,6 +10,39 @@ import UIKit
    * Trigger outputs, faking external behavior.
 ***********************/
 
+extension ZZZViewController {
+    override var presentedViewController: UIViewController? {
+        return vp_presentedViewController
+    }
+
+    override var presentingViewController: UIViewController? {
+        return vp_presentingViewController
+    }
+}
+
+public class ViewDelegate: ZZZViewDelegate {
+    weak var viewController: ZZZViewController?
+    let viewLifecycle = ViewLifecycle()
+
+    func presentViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
+        viewController?.vp_presentedViewController = viewControllerToPresent
+        viewLifecycle.appear(viewControllerToPresent)
+
+        guard let vc = viewControllerToPresent as? ZZZViewController else { fatalError() }
+        vc.vp_presentingViewController = viewController
+    }
+
+    func dismissViewControllerAnimated(flag: Bool, completion: (() -> Void)?) {
+        if let presentedViewController = viewController?.vp_presentedViewController as? ZZZViewController {
+            presentedViewController.vp_presentingViewController = nil
+            viewLifecycle.disappear(presentedViewController, animated: false)
+        }
+
+        viewController?.vp_presentedViewController = nil
+        viewLifecycle.appear(viewController!)
+    }
+}
+
 extension DashboardViewController {
 
     var somethingOnThePage: String {
@@ -45,39 +78,14 @@ extension SlideUpViewController {
     }
 }
 
-extension ViewPresenter {
-    var viewLifecycle: ViewLifecycle {
-        return ViewLifecycle()
+class BogusSender { }
+
+extension ZZZViewController {
+    var visible: Bool {
+        return presentedViewController == nil
     }
 
     func assertVisible() {
-        assert(visible, "This action is invalid because the view is not visible")
-    }
-
-    var visible: Bool {
-        return vp_presentedViewPresenter == nil
-    }
-
-    override var presentedViewController: UIViewController? {
-        return vp_presentedViewPresenter
-    }
-    override var presentingViewController: UIViewController? {
-        return vp_presentingViewPresenter
-    }
-    override func presentViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
-        if let viewPresenterToPresent = viewControllerToPresent as? ViewPresenter {
-            vp_presentedViewPresenter = viewPresenterToPresent
-            viewLifecycle.appear(viewPresenterToPresent)
-            viewPresenterToPresent.vp_presentingViewPresenter = self
-        }
-    }
-    override func dismissViewControllerAnimated(flag: Bool, completion: (() -> Void)?) {
-        if let presentedViewPresenter = vp_presentedViewPresenter {
-            vp_presentedViewPresenter = nil
-            viewLifecycle.disappear(presentedViewPresenter)
-            presentedViewPresenter.vp_presentingViewPresenter = nil
-        }
+        assert(visible)
     }
 }
-
-class BogusSender { }

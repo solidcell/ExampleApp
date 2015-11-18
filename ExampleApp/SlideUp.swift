@@ -17,7 +17,7 @@ class SlideUpViewModel {
     }
 }
 
-class SlideUpViewController: ViewPresenter {
+class SlideUpViewController: ZZZViewController {
 
     let viewModel = SlideUpViewModel()
 
@@ -31,7 +31,7 @@ class SlideUpViewController: ViewPresenter {
     @IBAction func didTapDoneButton(sender: AnyObject) {
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.greenColor()

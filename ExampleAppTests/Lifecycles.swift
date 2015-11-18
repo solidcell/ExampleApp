@@ -38,8 +38,9 @@ class ViewLifecycle {
         viewController.viewDidAppear(false)
     }
 
-    func disappear(viewController: UIViewController) {
-        //
+    func disappear(viewController: UIViewController, animated: Bool) {
+        viewController.viewWillDisappear(animated)
+        viewController.viewDidDisappear(animated)
     }
 
     private func loadView(viewController: UIViewController) {

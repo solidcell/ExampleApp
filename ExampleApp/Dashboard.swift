@@ -25,16 +25,16 @@ class DashboardViewModel {
     }
 }
 
-class DashboardViewController: ViewPresenter {
+class DashboardViewController: ZZZViewController {
     var viewModel: DashboardViewModel
 
     @IBAction func didTapSlideUpButton(sender: AnyObject) {
         viewModel.didTapSlideUpButton()
     }
 
-    init(viewModel: DashboardViewModel) {
+    init(viewModel: DashboardViewModel, viewDelegate: ZZZViewDelegate?) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init(viewDelegate: viewDelegate)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -47,7 +47,7 @@ class DashboardViewController: ViewPresenter {
         view.backgroundColor = UIColor.grayColor()
     }
 
-    func pushImportantModal(viewPresenter: ViewPresenter) {
+    func pushImportantModal(viewPresenter: UIViewController) {
         presentViewController(viewPresenter, animated: true, completion: nil)
     }
 }

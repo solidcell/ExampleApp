@@ -9,18 +9,6 @@ import UIKit
  These are replaced by fake implementations during tests
 ***********************/
 
-// TODONOW consider if this class is needed at all, since we could
-// override UIViewController lifecycle methods with an extension.
-// However, a solution to get rid of vp_presentedViewController is needed
-class ViewPresenter: UIViewController {
-    // TODONOW can we do away with this somehow? It's needed for
-    // an extension in the specs since:
-    // an extension can't define new properties, needed because:
-    // an extension can't set presentedViewController [would be the best]
-    var vp_presentedViewPresenter: ViewPresenter?
-    weak var vp_presentingViewPresenter: ViewPresenter?
-}
-
 class Window: UIWindow, Windowable {
     var real: UIWindow {
         return self
