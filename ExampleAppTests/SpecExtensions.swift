@@ -10,39 +10,6 @@ import UIKit
    * Trigger outputs, faking external behavior.
 ***********************/
 
-extension ZZZViewController {
-    override var presentedViewController: UIViewController? {
-        return vp_presentedViewController
-    }
-
-    override var presentingViewController: UIViewController? {
-        return vp_presentingViewController
-    }
-}
-
-public class ViewDelegate: ZZZViewDelegate {
-    weak var viewController: ZZZViewController?
-    let viewLifecycle = ViewLifecycle()
-
-    func presentViewController(viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)?) {
-        viewController?.vp_presentedViewController = viewControllerToPresent
-        viewLifecycle.appear(viewControllerToPresent)
-
-        guard let vc = viewControllerToPresent as? ZZZViewController else { fatalError() }
-        vc.vp_presentingViewController = viewController
-    }
-
-    func dismissViewControllerAnimated(flag: Bool, completion: (() -> Void)?) {
-        if let presentedViewController = viewController?.vp_presentedViewController as? ZZZViewController {
-            presentedViewController.vp_presentingViewController = nil
-            viewLifecycle.disappear(presentedViewController, animated: false)
-        }
-
-        viewController?.vp_presentedViewController = nil
-        viewLifecycle.appear(viewController!)
-    }
-}
-
 extension DashboardViewController {
 
     var somethingOnThePage: String {
@@ -80,7 +47,7 @@ extension SlideUpViewController {
 
 class BogusSender { }
 
-extension ZZZViewController {
+extension UIViewController {
     var visible: Bool {
         return presentedViewController == nil
     }

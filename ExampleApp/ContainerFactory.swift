@@ -7,16 +7,14 @@ class ContainerFactory {
     static func createContainer() -> Container {
         return self.registerServices(
             screen: { UIScreen.mainScreen() },
-            window: { bounds in Window(frame: bounds) },
-            viewDelegate: { nil }
+            window: { bounds in Window(frame: bounds) }
         )
     }
 
     // This is the configuration for the shared object graph
     static func registerServices(screen
         screen: () -> Screenable,
-        window: (CGRect) -> Windowable,
-        viewDelegate: () -> ZZZViewDelegate?
+        window: (CGRect) -> Windowable
         ) -> Container
     {
         let c = Container()
@@ -35,13 +33,13 @@ class ContainerFactory {
 
         c.register(DashboardViewController.self) { r in
             let viewModel = r.resolve(DashboardViewModel.self)!
-            let dashboard = DashboardViewController(viewModel: viewModel, viewDelegate: viewDelegate())
+            let dashboard = DashboardViewController(viewModel: viewModel)
             dashboard.viewModel.presenter = dashboard
             return dashboard
         }
 
         c.register(SlideUpViewController.self) { _ in
-            return SlideUpViewController(viewDelegate: viewDelegate())
+            return SlideUpViewController()
         }
 
         // MARK: Leaf Objects

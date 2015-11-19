@@ -31,20 +31,3 @@ class AppLifecycle {
         appProxy.didBecomeActive()
     }
 }
-
-class ViewLifecycle {
-    func appear(viewController: UIViewController) {
-        loadView(viewController)
-        viewController.viewDidAppear(false)
-    }
-
-    func disappear(viewController: UIViewController, animated: Bool) {
-        viewController.viewWillDisappear(animated)
-        viewController.viewDidDisappear(animated)
-    }
-
-    private func loadView(viewController: UIViewController) {
-        // load the view and call viewDidLoad
-        var _ = viewController.view
-    }
-}

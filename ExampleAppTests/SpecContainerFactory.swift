@@ -8,8 +8,7 @@ class SpecContainerFactory {
     static func createContainer() -> Container {
         return ContainerFactory.registerServices(
             screen: { FakeScreen() },
-            window: { _ in FakeWindow() },
-            viewDelegate: { ViewDelegate() }
+            window: { _ in FakeWindow() }
         )
     }
 }

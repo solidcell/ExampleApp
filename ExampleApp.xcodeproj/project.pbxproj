@@ -13,7 +13,7 @@
 		88331EB91BF301A40060495A /* Framework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88331EB81BF301A40060495A /* Framework.swift */; };
 		88331EBB1BF3022F0060495A /* Fakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88331EBA1BF3022F0060495A /* Fakes.swift */; };
 		8869C7C71BEFC3CF00BCD34C /* Swinject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8869C7C51BEFC3CF00BCD34C /* Swinject.framework */; };
-		8871B7991BF07FE5009563DF /* Lifecycles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8871B7981BF07FE5009563DF /* Lifecycles.swift */; };
+		8871B7991BF07FE5009563DF /* AppLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8871B7981BF07FE5009563DF /* AppLifecycle.swift */; };
 		88ADFA191BEB3637008C5180 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA181BEB3637008C5180 /* AppDelegate.swift */; };
 		88ADFA201BEB3637008C5180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88ADFA1F1BEB3637008C5180 /* Assets.xcassets */; };
 		88ADFA231BEB3637008C5180 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88ADFA211BEB3637008C5180 /* LaunchScreen.storyboard */; };
@@ -22,7 +22,8 @@
 		88ADFA3E1BEB3EAB008C5180 /* SpecExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA3D1BEB3EAB008C5180 /* SpecExtensions.swift */; };
 		88ADFA461BEB46B0008C5180 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA451BEB46B0008C5180 /* Dashboard.swift */; };
 		88ADFA501BEC509C008C5180 /* ContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA4F1BEC509C008C5180 /* ContainerFactory.swift */; };
-		88B01B4C1BFBE89700E34547 /* BaseClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B01B4B1BFBE89700E34547 /* BaseClasses.swift */; };
+		88BF01E21BFD40C20011BACC /* UIViewController+SpecSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF01E11BFD40C20011BACC /* UIViewController+SpecSwizzle.m */; };
+		88BF01E81BFD51070011BACC /* ViewLifecycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF01E71BFD51070011BACC /* ViewLifecycle.m */; };
 		88D3C09C1BEF1E2900A97E4B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3C09B1BEF1E2900A97E4B /* main.swift */; };
 		88F71A381BEFFB2D00323556 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F71A371BEFFB2D00323556 /* Extensions.swift */; };
 		88F71A3C1BF001B900323556 /* SpecContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F71A3B1BF001B900323556 /* SpecContainerFactory.swift */; };
@@ -59,7 +60,7 @@
 		88331EBA1BF3022F0060495A /* Fakes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fakes.swift; sourceTree = "<group>"; };
 		8869C7C51BEFC3CF00BCD34C /* Swinject.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swinject.framework; path = Carthage/Build/iOS/Swinject.framework; sourceTree = "<group>"; };
 		886BD6801BEC6A5500753268 /* ExampleApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ExampleApp-Bridging-Header.h"; sourceTree = "<group>"; };
-		8871B7981BF07FE5009563DF /* Lifecycles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lifecycles.swift; sourceTree = "<group>"; };
+		8871B7981BF07FE5009563DF /* AppLifecycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLifecycle.swift; sourceTree = "<group>"; };
 		88ADFA151BEB3637008C5180 /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88ADFA181BEB3637008C5180 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88ADFA1F1BEB3637008C5180 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -72,7 +73,10 @@
 		88ADFA3D1BEB3EAB008C5180 /* SpecExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecExtensions.swift; sourceTree = "<group>"; };
 		88ADFA451BEB46B0008C5180 /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		88ADFA4F1BEC509C008C5180 /* ContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerFactory.swift; sourceTree = "<group>"; };
-		88B01B4B1BFBE89700E34547 /* BaseClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseClasses.swift; sourceTree = "<group>"; };
+		88BF01DF1BFD407D0011BACC /* ExampleAppTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ExampleAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		88BF01E11BFD40C20011BACC /* UIViewController+SpecSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SpecSwizzle.m"; sourceTree = "<group>"; };
+		88BF01E61BFD51070011BACC /* ViewLifecycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewLifecycle.h; sourceTree = "<group>"; };
+		88BF01E71BFD51070011BACC /* ViewLifecycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewLifecycle.m; sourceTree = "<group>"; };
 		88D3C09B1BEF1E2900A97E4B /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		88F71A371BEFFB2D00323556 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		88F71A3B1BF001B900323556 /* SpecContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecContainerFactory.swift; sourceTree = "<group>"; };
@@ -124,7 +128,6 @@
 				88ADFA4F1BEC509C008C5180 /* ContainerFactory.swift */,
 				88331EB81BF301A40060495A /* Framework.swift */,
 				88F71A371BEFFB2D00323556 /* Extensions.swift */,
-				88B01B4B1BFBE89700E34547 /* BaseClasses.swift */,
 				88ADFA391BEB3B18008C5180 /* AppProxy.swift */,
 				88ADFA451BEB46B0008C5180 /* Dashboard.swift */,
 				8824EAC91BF7B9B2000F4F5D /* SlideUp.swift */,
@@ -144,9 +147,13 @@
 				88F71A3B1BF001B900323556 /* SpecContainerFactory.swift */,
 				88331EBA1BF3022F0060495A /* Fakes.swift */,
 				88ADFA2D1BEB3637008C5180 /* ExampleAppTests.swift */,
-				8871B7981BF07FE5009563DF /* Lifecycles.swift */,
+				8871B7981BF07FE5009563DF /* AppLifecycle.swift */,
+				88BF01E11BFD40C20011BACC /* UIViewController+SpecSwizzle.m */,
+				88BF01E61BFD51070011BACC /* ViewLifecycle.h */,
+				88BF01E71BFD51070011BACC /* ViewLifecycle.m */,
 				88ADFA3D1BEB3EAB008C5180 /* SpecExtensions.swift */,
 				88ADFA2F1BEB3637008C5180 /* Info.plist */,
+				88BF01DF1BFD407D0011BACC /* ExampleAppTests-Bridging-Header.h */,
 			);
 			path = ExampleAppTests;
 			sourceTree = "<group>";
@@ -288,7 +295,6 @@
 				88ADFA191BEB3637008C5180 /* AppDelegate.swift in Sources */,
 				88ADFA501BEC509C008C5180 /* ContainerFactory.swift in Sources */,
 				8824EACA1BF7B9B2000F4F5D /* SlideUp.swift in Sources */,
-				88B01B4C1BFBE89700E34547 /* BaseClasses.swift in Sources */,
 				88ADFA3A1BEB3B18008C5180 /* AppProxy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,8 +304,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				88ADFA3E1BEB3EAB008C5180 /* SpecExtensions.swift in Sources */,
+				88BF01E81BFD51070011BACC /* ViewLifecycle.m in Sources */,
 				88ADFA2E1BEB3637008C5180 /* ExampleAppTests.swift in Sources */,
-				8871B7991BF07FE5009563DF /* Lifecycles.swift in Sources */,
+				8871B7991BF07FE5009563DF /* AppLifecycle.swift in Sources */,
+				88BF01E21BFD40C20011BACC /* UIViewController+SpecSwizzle.m in Sources */,
 				88331EBB1BF3022F0060495A /* Fakes.swift in Sources */,
 				88F71A3C1BF001B900323556 /* SpecContainerFactory.swift in Sources */,
 			);
@@ -455,6 +463,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.solidcell.ExampleAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ExampleAppTests/ExampleAppTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExampleApp.app/ExampleApp";
 			};
 			name = Debug;
@@ -471,6 +480,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.solidcell.ExampleAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ExampleAppTests/ExampleAppTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ExampleApp.app/ExampleApp";
 			};
 			name = Release;

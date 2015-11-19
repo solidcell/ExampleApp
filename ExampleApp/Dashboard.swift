@@ -25,16 +25,16 @@ class DashboardViewModel {
     }
 }
 
-class DashboardViewController: ZZZViewController {
+class DashboardViewController: UIViewController {
     var viewModel: DashboardViewModel
 
     @IBAction func didTapSlideUpButton(sender: AnyObject) {
         viewModel.didTapSlideUpButton()
     }
 
-    init(viewModel: DashboardViewModel, viewDelegate: ZZZViewDelegate?) {
+    init(viewModel: DashboardViewModel) {
         self.viewModel = viewModel
-        super.init(viewDelegate: viewDelegate)
+        super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {

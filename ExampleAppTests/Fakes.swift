@@ -19,7 +19,7 @@ class FakeWindow: Windowable {
 
     var rootViewController: UIViewController? {
         didSet {
-            viewLifecycle.appear(rootViewController!)
+            viewLifecycle.appear(rootViewController!, animated: false)
         }
     }
     

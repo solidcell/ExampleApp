@@ -4,13 +4,11 @@ func isRunningTests() -> Bool {
     return NSClassFromString("XCTestCase") != nil
 }
 
-
-class UnitTestsAppDelegate: UIResponder, UIApplicationDelegate
-{
+class SpecAppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 if isRunningTests() {
-    UIApplicationMain(Process.argc, Process.unsafeArgv, NSStringFromClass(UIApplication), NSStringFromClass(UnitTestsAppDelegate))
+    UIApplicationMain(Process.argc, Process.unsafeArgv, NSStringFromClass(UIApplication), NSStringFromClass(SpecAppDelegate))
 } else {
     UIApplicationMain(Process.argc, Process.unsafeArgv, NSStringFromClass(UIApplication), NSStringFromClass(AppDelegate))
 }

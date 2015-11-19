@@ -17,7 +17,7 @@ class SlideUpViewModel {
     }
 }
 
-class SlideUpViewController: ZZZViewController {
+class SlideUpViewController: UIViewController {
 
     let viewModel = SlideUpViewModel()
 
