@@ -29,7 +29,7 @@ class SlideUpViewController: UIViewController {
     }
 
     @IBAction func didTapDoneButton(sender: AnyObject) {
-        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
     override func viewDidLoad() {

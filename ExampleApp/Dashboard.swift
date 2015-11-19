@@ -21,7 +21,8 @@ class DashboardViewModel {
 
     func didTapSlideUpButton() {
         let slideUp = appContainer.resolve(SlideUpViewController.self)!
-        presenter?.pushImportantModal(slideUp)
+        let nav = UINavigationController(rootViewController: slideUp)
+        presenter?.pushImportantModal(nav)
     }
 }
 

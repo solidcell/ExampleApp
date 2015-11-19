@@ -41,6 +41,7 @@ class ExampleAppTests: XCTestCase {
     }
 
     var slideUp: SlideUpViewController {
-        return dashboard.presentedViewController as! SlideUpViewController
+        let nav = dashboard.presentedViewController as! UINavigationController
+        return nav.topViewController as! SlideUpViewController
     }
 }

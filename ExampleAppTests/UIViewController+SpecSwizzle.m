@@ -42,7 +42,13 @@
 #pragma mark - presentingViewController
 
 - (UIViewController *)presentingViewController {
-    return self.internalPresentingViewController;
+    if (self.internalPresentingViewController) {
+        return self.internalPresentingViewController;
+    }
+    if (self.navigationController && self.navigationController.internalPresentingViewController) {
+        return self.navigationController.internalPresentingViewController;
+    }
+    return nil;
 }
 
 - (void)setInternalPresentingViewController:(UIViewController *)object {
@@ -62,9 +68,13 @@
 }
 
 - (void)xxx_dismissViewControllerAnimated:(BOOL)animated completion:(void (^ __nullable)(void))completion {
-    self.internalPresentedViewController.internalPresentingViewController = nil;
-    [[self viewLifecycle] disappear:self.internalPresentedViewController animated:animated];
-    self.internalPresentedViewController = nil;
+    if (self.internalPresentedViewController) {
+        self.internalPresentedViewController.internalPresentingViewController = nil;
+        [[self viewLifecycle] disappear:self.internalPresentedViewController animated:animated];
+        self.internalPresentedViewController = nil;
+    } else {
+        [self.presentingViewController dismissViewControllerAnimated:animated completion:completion];
+    }
 }
 
 #pragma mark - Helpers
