@@ -3,11 +3,8 @@ import Swinject
 
 class DashboardViewModel {
     private let screen: Screenable
-    weak var presenter: DashboardViewController?
-    let appContainer: Resolvable
 
-    init(appContainer: Resolvable, screen: Screenable) {
-        self.appContainer = appContainer
+    init(screen: Screenable) {
         self.screen = screen
     }
 
@@ -19,6 +16,16 @@ class DashboardViewModel {
         return "i see your device size is \(screen.bounds.width)x\(screen.bounds.height)"
     }
 
+}
+
+class DashboardController {
+    weak var presenter: DashboardViewController?
+    let appContainer: Resolvable
+
+    init(appContainer: Resolvable) {
+        self.appContainer = appContainer
+    }
+
     func didTapSlideUpButton() {
         let slideUp = appContainer.resolve(SlideUpViewController.self)!
         let nav = UINavigationController(rootViewController: slideUp)
@@ -28,13 +35,15 @@ class DashboardViewModel {
 
 class DashboardViewController: UIViewController {
     var viewModel: DashboardViewModel
+    let controller: DashboardController
 
     @IBAction func didTapSlideUpButton(sender: AnyObject) {
-        viewModel.didTapSlideUpButton()
+        controller.didTapSlideUpButton()
     }
 
-    init(viewModel: DashboardViewModel) {
+    init(viewModel: DashboardViewModel, controller: DashboardController) {
         self.viewModel = viewModel
+        self.controller = controller
         super.init(nibName: nil, bundle: nil)
     }
 

@@ -5,7 +5,8 @@ import UIKit
  Leaf Objects - Fake Implementations
  
  These are the leaves of the object graph, representing sources of
- input and output: view controllers, configurations, network libraries, etc.
+ input and output: time, main operation queue, events, 
+ persistence, configurations, network libraries, etc.
  
  These replace real implementations during tests
 ***********************/
