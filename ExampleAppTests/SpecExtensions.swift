@@ -31,6 +31,7 @@ extension DashboardViewController {
 extension SlideUpViewController {
     var mainLabelText: String? {
         assertVisible()
+        print(mainLabel)
         return mainLabel.text
     }
 
@@ -49,6 +50,7 @@ class BogusSender { }
 
 extension UIViewController {
     var visible: Bool {
+        print(presentationController)
         return presentedViewController == nil
     }
 

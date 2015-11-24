@@ -15,19 +15,19 @@ class FakeScreen: Screenable {
     var bounds = CGRect(x: 0, y: 0, width: 100, height: 150)
 }
 
-class FakeWindow: Windowable {
-    let viewLifecycle = ViewLifecycle()
-
-    var rootViewController: UIViewController? {
-        didSet {
-            viewLifecycle.appear(rootViewController!, animated: false)
-        }
-    }
-    
-    func makeKeyAndVisible() {
-    }
-
-    var real: UIWindow {
-        fatalError("fakes should never be asked for a real representation")
-    }
-}
+//class FakeWindow: Windowable {
+//    let viewLifecycle = ViewLifecycle()
+//
+//    var rootViewController: UIViewController? {
+//        didSet {
+//            viewLifecycle.appear(rootViewController!, animated: false)
+//        }
+//    }
+//    
+//    func makeKeyAndVisible() {
+//    }
+//
+//    var real: UIWindow {
+//        fatalError("fakes should never be asked for a real representation")
+//    }
+//}

@@ -17,8 +17,7 @@
 
 - (void)loadView:(UIViewController *)viewController {
     // load the view and call viewDidLoad
-    UIView *forceLoad = viewController.view;
-    forceLoad = nil;
+    __unused UIView *forceLoad = viewController.view;
 }
 
 - (void)navigationControllerAppearHook:(UIViewController *)viewController {

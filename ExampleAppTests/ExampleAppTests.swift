@@ -17,18 +17,31 @@ class ExampleAppTests: XCTestCase {
     }
 
     func testLotsOfStuff() {
-        appLifecycle.bootApp()
+        RBTimeLapse.disableAnimationsInBlock { () -> Void in
+            self.appLifecycle.bootApp()
+        }
+        RBTimeLapse.advanceMainRunLoop()
         XCTAssert(dashboard.visible)
         XCTAssert(dashboard.somethingOnThePage == "sth from the viewModel")
         XCTAssert(dashboard.deviceRemark == "i see your device size is 100.0x150.0")
-        dashboard.tapSlideUpButton()
+        RBTimeLapse.disableAnimationsInBlock { () -> Void in
+            self.dashboard.tapSlideUpButton()
+        }
+        print(appContainer)
+        let bla = appContainer.resolve(Windowable.self) as? UIView
+        print(bla?.subviews)
+        print(dashboard.view)
+        RBTimeLapse.advanceMainRunLoop()
         XCTAssert(slideUp.mainLabelText == "you clicked the button 0 times")
         slideUp.tapShinyButton()
         XCTAssert(slideUp.mainLabelText == "you clicked the button 1 time")
         slideUp.tapShinyButton()
         XCTAssert(slideUp.mainLabelText == "you clicked the button 2 times")
         XCTAssert(!dashboard.visible)
-        slideUp.tapDoneButton()
+        RBTimeLapse.disableAnimationsInBlock { () -> Void in
+            self.slideUp.tapDoneButton()
+        }
+        RBTimeLapse.advanceMainRunLoop()
         XCTAssert(dashboard.visible)
     }
 

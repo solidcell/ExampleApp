@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CFCC1B01C0444BD0068DD5F /* NSObject+RBSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCC1AC1C0444BD0068DD5F /* NSObject+RBSwizzle.m */; };
+		3CFCC1B11C0444BD0068DD5F /* RBTimeLapse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFCC1AE1C0444BD0068DD5F /* RBTimeLapse.m */; };
 		880253831BF7FBB7001DEE93 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 880253821BF7FBB7001DEE93 /* DashboardViewController.xib */; };
 		8824EAC81BF7B09B000F4F5D /* SlideUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8824EAC71BF7B09B000F4F5D /* SlideUpViewController.xib */; };
 		8824EACA1BF7B9B2000F4F5D /* SlideUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8824EAC91BF7B9B2000F4F5D /* SlideUp.swift */; };
@@ -53,6 +55,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3CFCC1AB1C0444BD0068DD5F /* NSObject+RBSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RBSwizzle.h"; sourceTree = "<group>"; };
+		3CFCC1AC1C0444BD0068DD5F /* NSObject+RBSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RBSwizzle.m"; sourceTree = "<group>"; };
+		3CFCC1AD1C0444BD0068DD5F /* RBTimeLapse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBTimeLapse.h; sourceTree = "<group>"; };
+		3CFCC1AE1C0444BD0068DD5F /* RBTimeLapse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBTimeLapse.m; sourceTree = "<group>"; };
+		3CFCC1AF1C0444BD0068DD5F /* RBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBUtils.h; sourceTree = "<group>"; };
+		3CFCC1B21C0444D80068DD5F /* RBMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RBMacros.h; sourceTree = "<group>"; };
 		880253821BF7FBB7001DEE93 /* DashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		8824EAC71BF7B09B000F4F5D /* SlideUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideUpViewController.xib; sourceTree = "<group>"; };
 		8824EAC91BF7B9B2000F4F5D /* SlideUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideUp.swift; sourceTree = "<group>"; };
@@ -144,6 +152,12 @@
 		88ADFA2C1BEB3637008C5180 /* ExampleAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				3CFCC1AB1C0444BD0068DD5F /* NSObject+RBSwizzle.h */,
+				3CFCC1AC1C0444BD0068DD5F /* NSObject+RBSwizzle.m */,
+				3CFCC1AD1C0444BD0068DD5F /* RBTimeLapse.h */,
+				3CFCC1B21C0444D80068DD5F /* RBMacros.h */,
+				3CFCC1AE1C0444BD0068DD5F /* RBTimeLapse.m */,
+				3CFCC1AF1C0444BD0068DD5F /* RBUtils.h */,
 				88F71A3B1BF001B900323556 /* SpecContainerFactory.swift */,
 				88331EBA1BF3022F0060495A /* Fakes.swift */,
 				88ADFA2D1BEB3637008C5180 /* ExampleAppTests.swift */,
@@ -309,6 +323,8 @@
 				8871B7991BF07FE5009563DF /* AppLifecycle.swift in Sources */,
 				88BF01E21BFD40C20011BACC /* UIViewController+SpecSwizzle.m in Sources */,
 				88331EBB1BF3022F0060495A /* Fakes.swift in Sources */,
+				3CFCC1B01C0444BD0068DD5F /* NSObject+RBSwizzle.m in Sources */,
+				3CFCC1B11C0444BD0068DD5F /* RBTimeLapse.m in Sources */,
 				88F71A3C1BF001B900323556 /* SpecContainerFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
