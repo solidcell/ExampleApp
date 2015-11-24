@@ -28,13 +28,19 @@ class ContainerFactory {
 
         c.register(DashboardViewModel.self) { r in
             let screen = r.resolve(Screenable.self)!
-            return DashboardViewModel(appContainer: r, screen: screen)
+            return DashboardViewModel(screen: screen)
+        }
+
+        c.register(DashboardController.self) { r in
+            return DashboardController(appContainer: r)
         }
 
         c.register(DashboardViewController.self) { r in
             let viewModel = r.resolve(DashboardViewModel.self)!
-            let dashboard = DashboardViewController(viewModel: viewModel)
-            dashboard.viewModel.presenter = dashboard
+            let controller = r.resolve(DashboardController.self)!
+            let dashboard = DashboardViewController(viewModel: viewModel,
+                controller: controller)
+            dashboard.controller.presenter = dashboard
             return dashboard
         }
 
