@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="ExampleApp" customModuleProvider="target">
             <connections>
+                <outlet property="deviceRemarkLabel" destination="9zj-i3-Azl" id="mUR-xq-m5j"/>
+                <outlet property="mainLabel" destination="b9T-qa-oRQ" id="6Vo-2B-Mif"/>
                 <outlet property="view" destination="iN0-l3-epB" id="uQF-IA-jWp"/>
             </connections>
         </placeholder>
@@ -21,11 +23,35 @@
                         <action selector="didTapSlideUpButton:" destination="-1" eventType="touchUpInside" id="TN8-I0-D08"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9T-qa-oRQ">
+                    <rect key="frame" x="242" y="264" width="115" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="115" id="2P6-qS-PY4"/>
+                        <constraint firstAttribute="height" constant="45" id="VUJ-1s-gz4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zj-i3-Azl">
+                    <rect key="frame" x="246.5" y="377" width="107" height="43"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="43" id="3By-ce-dKX"/>
+                        <constraint firstAttribute="width" constant="107" id="jO8-vI-Q7T"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Qgh-op-Ai0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="150" id="IRz-0n-6vT"/>
+                <constraint firstItem="9zj-i3-Azl" firstAttribute="centerX" secondItem="b9T-qa-oRQ" secondAttribute="centerX" id="Jms-ZL-bRN"/>
+                <constraint firstItem="b9T-qa-oRQ" firstAttribute="top" secondItem="Qgh-op-Ai0" secondAttribute="bottom" constant="84" id="beV-Sd-v5j"/>
+                <constraint firstItem="9zj-i3-Azl" firstAttribute="top" secondItem="b9T-qa-oRQ" secondAttribute="bottom" constant="68" id="pkn-nw-oef"/>
                 <constraint firstItem="Qgh-op-Ai0" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vbc-oH-o1q"/>
+                <constraint firstItem="b9T-qa-oRQ" firstAttribute="centerX" secondItem="Qgh-op-Ai0" secondAttribute="centerX" id="wVa-Xb-U9c"/>
             </constraints>
         </view>
     </objects>

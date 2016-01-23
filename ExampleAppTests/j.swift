@@ -44,10 +44,9 @@ class ExampleAppTests: XCTestCase {
             self.appLifecycle.bootApp()
         }
         RBTimeLapse.advanceMainRunLoop()
-        XCTAssert(rootViewController.view.checkText("Slide Up!"))
-//        XCTAssert(dashboard.visible)
-//        XCTAssert(dashboard.somethingOnThePage == "sth from the viewModel")
-//        XCTAssert(dashboard.deviceRemark == "i see your device size is 100.0x150.0")
+        XCTAssert(rootViewController.view.checkText("Slide Up"))
+        XCTAssert(rootViewController.view.checkText("sth from the viewModel"))
+        XCTAssert(rootViewController.view.checkText("i see your device size is 100.0x150.0"))
 //        RBTimeLapse.disableAnimationsInBlock { () -> Void in
 //            self.dashboard.tapSlideUpButton()
 //        }

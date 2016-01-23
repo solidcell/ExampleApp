@@ -19,7 +19,7 @@
 		88ADFA191BEB3637008C5180 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA181BEB3637008C5180 /* AppDelegate.swift */; };
 		88ADFA201BEB3637008C5180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88ADFA1F1BEB3637008C5180 /* Assets.xcassets */; };
 		88ADFA231BEB3637008C5180 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88ADFA211BEB3637008C5180 /* LaunchScreen.storyboard */; };
-		88ADFA2E1BEB3637008C5180 /* ExampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA2D1BEB3637008C5180 /* ExampleAppTests.swift */; };
+		88ADFA2E1BEB3637008C5180 /* j.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA2D1BEB3637008C5180 /* j.swift */; };
 		88ADFA3A1BEB3B18008C5180 /* AppProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA391BEB3B18008C5180 /* AppProxy.swift */; };
 		88ADFA3E1BEB3EAB008C5180 /* SpecExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA3D1BEB3EAB008C5180 /* SpecExtensions.swift */; };
 		88ADFA461BEB46B0008C5180 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA451BEB46B0008C5180 /* Dashboard.swift */; };
@@ -73,7 +73,7 @@
 		88ADFA221BEB3637008C5180 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88ADFA241BEB3637008C5180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88ADFA291BEB3637008C5180 /* ExampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		88ADFA2D1BEB3637008C5180 /* ExampleAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleAppTests.swift; sourceTree = "<group>"; };
+		88ADFA2D1BEB3637008C5180 /* j.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = j.swift; sourceTree = "<group>"; };
 		88ADFA2F1BEB3637008C5180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88ADFA391BEB3B18008C5180 /* AppProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppProxy.swift; sourceTree = "<group>"; };
 		88ADFA3D1BEB3EAB008C5180 /* SpecExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecExtensions.swift; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 				3C1011391C53763A0022EF6E /* Robot */,
 				88F71A3B1BF001B900323556 /* SpecContainerFactory.swift */,
 				88331EBA1BF3022F0060495A /* Fakes.swift */,
-				88ADFA2D1BEB3637008C5180 /* ExampleAppTests.swift */,
+				88ADFA2D1BEB3637008C5180 /* j.swift */,
 				8871B7981BF07FE5009563DF /* AppLifecycle.swift */,
 				88ADFA3D1BEB3EAB008C5180 /* SpecExtensions.swift */,
 				88ADFA2F1BEB3637008C5180 /* Info.plist */,
@@ -318,7 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88ADFA3E1BEB3EAB008C5180 /* SpecExtensions.swift in Sources */,
-				88ADFA2E1BEB3637008C5180 /* ExampleAppTests.swift in Sources */,
+				88ADFA2E1BEB3637008C5180 /* j.swift in Sources */,
 				3C1011401C5376600022EF6E /* NSObject+RBSwizzle.m in Sources */,
 				8871B7991BF07FE5009563DF /* AppLifecycle.swift in Sources */,
 				88331EBB1BF3022F0060495A /* Fakes.swift in Sources */,

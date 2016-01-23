@@ -37,6 +37,8 @@ class DashboardViewController: UIViewController {
     var viewModel: DashboardViewModel
     let controller: DashboardController
 
+    @IBOutlet weak var deviceRemarkLabel: UILabel!
+    @IBOutlet weak var mainLabel: UILabel!
     @IBAction func didTapSlideUpButton(sender: AnyObject) {
         controller.didTapSlideUpButton()
     }
@@ -55,6 +57,8 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.grayColor()
+        mainLabel.text = viewModel.mainLabelString
+        deviceRemarkLabel.text = viewModel.deviceRemark
     }
 
     func pushImportantModal(viewPresenter: UIViewController) {
