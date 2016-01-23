@@ -8,7 +8,6 @@ class SpecContainerFactory {
         return ContainerFactory.registerServices(
             screen: { FakeScreen() },
             window: { bounds in Window(frame: bounds) }
-//            window: { _ in FakeWindow() }
         )
     }
 }
