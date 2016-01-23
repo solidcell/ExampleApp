@@ -6,15 +6,13 @@ class ContainerFactory {
     // This is the configuration for the real app
     static func createContainer() -> Container {
         return self.registerServices(
-            screen: { UIScreen.mainScreen() },
-            window: { bounds in Window(frame: bounds) }
+            screen: { UIScreen.mainScreen() }
         )
     }
 
     // This is the configuration for the shared object graph
     static func registerServices(screen
-        screen: () -> Screenable,
-        window: (CGRect) -> Windowable
+        screen: () -> Screenable
         ) -> Container
     {
         let c = Container()
@@ -22,8 +20,7 @@ class ContainerFactory {
         // MARK: Shared Object Graph
 
         c.register(AppProxy.self) { r in
-            let window = r.resolve(Windowable.self)!
-            return AppProxy(appContainer: r, window: window)
+            return AppProxy(appContainer: r, screen: r.resolve(Screenable.self)!)
         }
 
         c.register(DashboardViewModel.self) { r in
@@ -52,11 +49,6 @@ class ContainerFactory {
 
         c.register(Screenable.self) { _ in
             screen()
-        }.inObjectScope(.Container)
-
-        c.register(Windowable.self) { r in
-            let screen = r.resolve(Screenable.self)!
-            return window(screen.bounds)
         }.inObjectScope(.Container)
 
         return c

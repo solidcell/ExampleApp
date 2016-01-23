@@ -26,8 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appContainer = ContainerFactory.createContainer()
         appProxy = appContainer.resolve(AppProxy.self)
 
-        let windowable = appProxy.window
-        window = windowable.real
+        window = appProxy.window
 
         return appProxy.willFinishLaunchingWithOptions()
     }

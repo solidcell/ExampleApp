@@ -9,12 +9,11 @@ import Swinject
 
 class AppProxy: NSObject {
     private let appContainer: Resolvable
-    // TODO why does this need to be `var`?
-    var window: Windowable
+    var window: UIWindow
 
-    init(appContainer: Resolvable, window: Windowable) {
+    init(appContainer: Resolvable, screen: Screenable) {
         self.appContainer = appContainer
-        self.window = window
+        self.window = UIWindow(frame: screen.bounds)
     }
 
     func willFinishLaunchingWithOptions() -> Bool {
