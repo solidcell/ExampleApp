@@ -4,24 +4,29 @@ import Swinject
 
 extension UIView {
     //This assumes that labels, textView and textFields don't have subviews that might have the text
-    func checkText(text: String) -> Bool {
-        if self.respondsToSelector("text") {
-            if let result = self.performSelector("text") {
-                if let textToCheck = result.takeRetainedValue() as? String {
-                    if textToCheck == text {
-                        return true
-                    }
-                }
-            }
-        }
-        else {
-            for view in self.subviews {
-                if view.checkText(text) {
-                    return true
-                }
+    func checkTextInSubviews(text: String) -> Bool {
+        for view in self.subviews {
+            if view.checkText(text) {
+                return true
             }
         }
         return false
+    }
+
+    func checkText(text: String) -> Bool {
+        guard self.respondsToSelector("text") else {
+            return checkTextInSubviews(text)
+        }
+        guard let result = self.performSelector("text") else {
+            return checkTextInSubviews(text)
+        }
+        guard let textToCheck = result.takeRetainedValue() as? String else {
+            return checkTextInSubviews(text)
+        }
+        guard textToCheck == text else {
+            return checkTextInSubviews(text)
+        }
+        return true
     }
 }
 
@@ -50,10 +55,6 @@ class ExampleAppTests: XCTestCase {
 //        RBTimeLapse.disableAnimationsInBlock { () -> Void in
 //            self.dashboard.tapSlideUpButton()
 //        }
-//        print(appContainer)
-//        let bla = appContainer.resolve(Windowable.self) as? UIView
-//        print(bla?.subviews)
-//        print(dashboard.view)
 //        RBTimeLapse.advanceMainRunLoop()
 //        XCTAssert(slideUp.mainLabelText == "you clicked the button 0 times")
 //        slideUp.tapShinyButton()
