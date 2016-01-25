@@ -9,11 +9,12 @@ import Swinject
 
 class AppProxy: NSObject {
     private let appContainer: Resolvable
-    var window: UIWindow
+    let window: UIWindow
 
-    init(appContainer: Resolvable, screen: Screenable) {
+    init(appContainer: Resolvable, window: UIWindow) {
         self.appContainer = appContainer
-        self.window = UIWindow(frame: screen.bounds)
+        print(window)
+        self.window = window
     }
 
     func willFinishLaunchingWithOptions() -> Bool {

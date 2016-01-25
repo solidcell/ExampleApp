@@ -19,15 +19,20 @@ import Swinject
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var appContainer: Container!
-    var appProxy: AppProxy!
+    private var appProxy: AppProxy!
+
+    override init() {
+        let appContainer = ContainerFactory.createContainer()
+        let screen = appContainer.resolve(Screenable.self)!
+        let window = UIWindow(frame: screen.bounds)
+        appContainer.register(UIWindow.self) { _ in
+            window
+        }
+        self.window = window
+        appProxy = appContainer.resolve(AppProxy.self)
+    }
 
     func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        appContainer = ContainerFactory.createContainer()
-        appProxy = appContainer.resolve(AppProxy.self)
-
-        window = appProxy.window
-
         return appProxy.willFinishLaunchingWithOptions()
     }
 

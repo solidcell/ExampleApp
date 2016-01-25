@@ -20,7 +20,7 @@ class ContainerFactory {
         // MARK: Shared Object Graph
 
         c.register(AppProxy.self) { r in
-            return AppProxy(appContainer: r, screen: r.resolve(Screenable.self)!)
+            return AppProxy(appContainer: r, window: r.resolve(UIWindow.self)!)
         }
 
         c.register(DashboardViewModel.self) { r in
