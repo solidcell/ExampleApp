@@ -18,34 +18,22 @@ class DashboardViewModel {
 
 }
 
-class DashboardController {
-    weak var presenter: DashboardViewController?
-    let appContainer: Resolvable
-
-    init(appContainer: Resolvable) {
-        self.appContainer = appContainer
-    }
-
-    func didTapSlideUpButton() {
-        let slideUp = appContainer.resolve(SlideUpViewController.self)!
-        let nav = UINavigationController(rootViewController: slideUp)
-        presenter?.pushImportantModal(nav)
-    }
-}
-
 class DashboardViewController: UIViewController {
     var viewModel: DashboardViewModel
-    let controller: DashboardController
+    let appContainer: Resolvable
 
     @IBOutlet weak var deviceRemarkLabel: UILabel!
     @IBOutlet weak var mainLabel: UILabel!
+    
     @IBAction func didTapSlideUpButton(sender: AnyObject) {
-        controller.didTapSlideUpButton()
+        let slideUp = appContainer.resolve(SlideUpViewController.self)!
+        let nav = UINavigationController(rootViewController: slideUp)
+        presentViewController(nav, animated: true, completion: nil)
     }
 
-    init(viewModel: DashboardViewModel, controller: DashboardController) {
+    init(appContainer: Resolvable, viewModel: DashboardViewModel) {
         self.viewModel = viewModel
-        self.controller = controller
+        self.appContainer = appContainer
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -59,9 +47,5 @@ class DashboardViewController: UIViewController {
         view.backgroundColor = UIColor.grayColor()
         mainLabel.text = viewModel.mainLabelString
         deviceRemarkLabel.text = viewModel.deviceRemark
-    }
-
-    func pushImportantModal(viewPresenter: UIViewController) {
-        presentViewController(viewPresenter, animated: true, completion: nil)
     }
 }

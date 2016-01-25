@@ -25,7 +25,12 @@ class SlideUpViewController: UIViewController {
 
     @IBAction func didTapShinyButton(sender: AnyObject) {
         viewModel.didClick()
-        mainLabel.text = viewModel.clickCountText
+        UIView.animateWithDuration(0.5) {[weak self] () -> Void in
+            guard let vSelf = self else {
+                return
+            }
+            vSelf.mainLabel.text = vSelf.viewModel.clickCountText
+        }
     }
 
     @IBAction func didTapDoneButton(sender: AnyObject) {

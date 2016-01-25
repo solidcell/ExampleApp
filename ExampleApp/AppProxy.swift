@@ -13,14 +13,12 @@ class AppProxy: NSObject {
 
     init(appContainer: Resolvable, window: UIWindow) {
         self.appContainer = appContainer
-        print(window)
         self.window = window
     }
 
     func willFinishLaunchingWithOptions() -> Bool {
         let dashboard = appContainer.resolve(DashboardViewController.self)
         window.rootViewController = dashboard
-        window.makeKeyAndVisible()
         return true
     }
 

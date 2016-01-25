@@ -28,17 +28,9 @@ class ContainerFactory {
             return DashboardViewModel(screen: screen)
         }
 
-        c.register(DashboardController.self) { r in
-            return DashboardController(appContainer: r)
-        }
-
         c.register(DashboardViewController.self) { r in
             let viewModel = r.resolve(DashboardViewModel.self)!
-            let controller = r.resolve(DashboardController.self)!
-            let dashboard = DashboardViewController(viewModel: viewModel,
-                controller: controller)
-            dashboard.controller.presenter = dashboard
-            return dashboard
+            return DashboardViewController(appContainer: r, viewModel: viewModel)
         }
 
         c.register(SlideUpViewController.self) { _ in
