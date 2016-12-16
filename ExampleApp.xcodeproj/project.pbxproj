@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C4E57E51C55A1E00096EB3A /* NSObject+RBSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E57E01C55A1E00096EB3A /* NSObject+RBSwizzle.m */; };
+		3C4E57E61C55A1E00096EB3A /* RBTimeLapse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C4E57E31C55A1E00096EB3A /* RBTimeLapse.m */; };
 		880253831BF7FBB7001DEE93 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 880253821BF7FBB7001DEE93 /* DashboardViewController.xib */; };
 		8824EAC81BF7B09B000F4F5D /* SlideUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8824EAC71BF7B09B000F4F5D /* SlideUpViewController.xib */; };
 		8824EACA1BF7B9B2000F4F5D /* SlideUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8824EAC91BF7B9B2000F4F5D /* SlideUp.swift */; };
@@ -19,11 +21,8 @@
 		88ADFA231BEB3637008C5180 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88ADFA211BEB3637008C5180 /* LaunchScreen.storyboard */; };
 		88ADFA2E1BEB3637008C5180 /* ExampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA2D1BEB3637008C5180 /* ExampleAppTests.swift */; };
 		88ADFA3A1BEB3B18008C5180 /* AppProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA391BEB3B18008C5180 /* AppProxy.swift */; };
-		88ADFA3E1BEB3EAB008C5180 /* SpecExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA3D1BEB3EAB008C5180 /* SpecExtensions.swift */; };
 		88ADFA461BEB46B0008C5180 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA451BEB46B0008C5180 /* Dashboard.swift */; };
 		88ADFA501BEC509C008C5180 /* ContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ADFA4F1BEC509C008C5180 /* ContainerFactory.swift */; };
-		88BF01E21BFD40C20011BACC /* UIViewController+SpecSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF01E11BFD40C20011BACC /* UIViewController+SpecSwizzle.m */; };
-		88BF01E81BFD51070011BACC /* ViewLifecycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BF01E71BFD51070011BACC /* ViewLifecycle.m */; };
 		88D3C09C1BEF1E2900A97E4B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3C09B1BEF1E2900A97E4B /* main.swift */; };
 		88F71A381BEFFB2D00323556 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F71A371BEFFB2D00323556 /* Extensions.swift */; };
 		88F71A3C1BF001B900323556 /* SpecContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F71A3B1BF001B900323556 /* SpecContainerFactory.swift */; };
@@ -40,6 +39,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		3CB118441C54C8A8009834E3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		88ADFA4B1BEC4F9C008C5180 /* Copy framework dSYMs */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -53,6 +61,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3C4E57DF1C55A1E00096EB3A /* NSObject+RBSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RBSwizzle.h"; sourceTree = "<group>"; };
+		3C4E57E01C55A1E00096EB3A /* NSObject+RBSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RBSwizzle.m"; sourceTree = "<group>"; };
+		3C4E57E11C55A1E00096EB3A /* RBMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBMacros.h; sourceTree = "<group>"; };
+		3C4E57E21C55A1E00096EB3A /* RBTimeLapse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBTimeLapse.h; sourceTree = "<group>"; };
+		3C4E57E31C55A1E00096EB3A /* RBTimeLapse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBTimeLapse.m; sourceTree = "<group>"; };
+		3C4E57E41C55A1E00096EB3A /* RBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBUtils.h; sourceTree = "<group>"; };
 		880253821BF7FBB7001DEE93 /* DashboardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		8824EAC71BF7B09B000F4F5D /* SlideUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideUpViewController.xib; sourceTree = "<group>"; };
 		8824EAC91BF7B9B2000F4F5D /* SlideUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideUp.swift; sourceTree = "<group>"; };
@@ -70,13 +84,9 @@
 		88ADFA2D1BEB3637008C5180 /* ExampleAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleAppTests.swift; sourceTree = "<group>"; };
 		88ADFA2F1BEB3637008C5180 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88ADFA391BEB3B18008C5180 /* AppProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppProxy.swift; sourceTree = "<group>"; };
-		88ADFA3D1BEB3EAB008C5180 /* SpecExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecExtensions.swift; sourceTree = "<group>"; };
 		88ADFA451BEB46B0008C5180 /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		88ADFA4F1BEC509C008C5180 /* ContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerFactory.swift; sourceTree = "<group>"; };
 		88BF01DF1BFD407D0011BACC /* ExampleAppTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ExampleAppTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		88BF01E11BFD40C20011BACC /* UIViewController+SpecSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SpecSwizzle.m"; sourceTree = "<group>"; };
-		88BF01E61BFD51070011BACC /* ViewLifecycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewLifecycle.h; sourceTree = "<group>"; };
-		88BF01E71BFD51070011BACC /* ViewLifecycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewLifecycle.m; sourceTree = "<group>"; };
 		88D3C09B1BEF1E2900A97E4B /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		88F71A371BEFFB2D00323556 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		88F71A3B1BF001B900323556 /* SpecContainerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecContainerFactory.swift; sourceTree = "<group>"; };
@@ -101,6 +111,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C4E57DE1C55A1E00096EB3A /* Robot */ = {
+			isa = PBXGroup;
+			children = (
+				3C4E57DF1C55A1E00096EB3A /* NSObject+RBSwizzle.h */,
+				3C4E57E01C55A1E00096EB3A /* NSObject+RBSwizzle.m */,
+				3C4E57E11C55A1E00096EB3A /* RBMacros.h */,
+				3C4E57E21C55A1E00096EB3A /* RBTimeLapse.h */,
+				3C4E57E31C55A1E00096EB3A /* RBTimeLapse.m */,
+				3C4E57E41C55A1E00096EB3A /* RBUtils.h */,
+			);
+			path = Robot;
+			sourceTree = "<group>";
+		};
 		88ADFA0C1BEB3637008C5180 = {
 			isa = PBXGroup;
 			children = (
@@ -144,14 +167,11 @@
 		88ADFA2C1BEB3637008C5180 /* ExampleAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				3C4E57DE1C55A1E00096EB3A /* Robot */,
 				88F71A3B1BF001B900323556 /* SpecContainerFactory.swift */,
 				88331EBA1BF3022F0060495A /* Fakes.swift */,
 				88ADFA2D1BEB3637008C5180 /* ExampleAppTests.swift */,
 				8871B7981BF07FE5009563DF /* AppLifecycle.swift */,
-				88BF01E11BFD40C20011BACC /* UIViewController+SpecSwizzle.m */,
-				88BF01E61BFD51070011BACC /* ViewLifecycle.h */,
-				88BF01E71BFD51070011BACC /* ViewLifecycle.m */,
-				88ADFA3D1BEB3EAB008C5180 /* SpecExtensions.swift */,
 				88ADFA2F1BEB3637008C5180 /* Info.plist */,
 				88BF01DF1BFD407D0011BACC /* ExampleAppTests-Bridging-Header.h */,
 			);
@@ -195,6 +215,7 @@
 				88ADFA251BEB3637008C5180 /* Sources */,
 				88ADFA261BEB3637008C5180 /* Frameworks */,
 				88ADFA271BEB3637008C5180 /* Resources */,
+				3CB118441C54C8A8009834E3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -303,13 +324,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88ADFA3E1BEB3EAB008C5180 /* SpecExtensions.swift in Sources */,
-				88BF01E81BFD51070011BACC /* ViewLifecycle.m in Sources */,
 				88ADFA2E1BEB3637008C5180 /* ExampleAppTests.swift in Sources */,
+				3C4E57E51C55A1E00096EB3A /* NSObject+RBSwizzle.m in Sources */,
 				8871B7991BF07FE5009563DF /* AppLifecycle.swift in Sources */,
-				88BF01E21BFD40C20011BACC /* UIViewController+SpecSwizzle.m in Sources */,
 				88331EBB1BF3022F0060495A /* Fakes.swift in Sources */,
 				88F71A3C1BF001B900323556 /* SpecContainerFactory.swift in Sources */,
+				3C4E57E61C55A1E00096EB3A /* RBTimeLapse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,10 +9,9 @@ import Swinject
 
 class AppProxy: NSObject {
     private let appContainer: Resolvable
-    // TODO why does this need to be `var`?
-    var window: Windowable
+    let window: UIWindow
 
-    init(appContainer: Resolvable, window: Windowable) {
+    init(appContainer: Resolvable, window: UIWindow) {
         self.appContainer = appContainer
         self.window = window
     }
@@ -20,7 +19,6 @@ class AppProxy: NSObject {
     func willFinishLaunchingWithOptions() -> Bool {
         let dashboard = appContainer.resolve(DashboardViewController.self)
         window.rootViewController = dashboard
-        window.makeKeyAndVisible()
         return true
     }
 

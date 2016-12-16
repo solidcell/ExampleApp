@@ -3,11 +3,8 @@ import Swinject
 
 class DashboardViewModel {
     private let screen: Screenable
-    weak var presenter: DashboardViewController?
-    let appContainer: Resolvable
 
-    init(appContainer: Resolvable, screen: Screenable) {
-        self.appContainer = appContainer
+    init(screen: Screenable) {
         self.screen = screen
     }
 
@@ -19,22 +16,24 @@ class DashboardViewModel {
         return "i see your device size is \(screen.bounds.width)x\(screen.bounds.height)"
     }
 
-    func didTapSlideUpButton() {
-        let slideUp = appContainer.resolve(SlideUpViewController.self)!
-        let nav = UINavigationController(rootViewController: slideUp)
-        presenter?.pushImportantModal(nav)
-    }
 }
 
 class DashboardViewController: UIViewController {
     var viewModel: DashboardViewModel
+    let appContainer: Resolvable
 
+    @IBOutlet weak var deviceRemarkLabel: UILabel!
+    @IBOutlet weak var mainLabel: UILabel!
+    
     @IBAction func didTapSlideUpButton(sender: AnyObject) {
-        viewModel.didTapSlideUpButton()
+        let slideUp = appContainer.resolve(SlideUpViewController.self)!
+        let nav = UINavigationController(rootViewController: slideUp)
+        presentViewController(nav, animated: true, completion: nil)
     }
 
-    init(viewModel: DashboardViewModel) {
+    init(appContainer: Resolvable, viewModel: DashboardViewModel) {
         self.viewModel = viewModel
+        self.appContainer = appContainer
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -46,9 +45,7 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.grayColor()
-    }
-
-    func pushImportantModal(viewPresenter: UIViewController) {
-        presentViewController(viewPresenter, animated: true, completion: nil)
+        mainLabel.text = viewModel.mainLabelString
+        deviceRemarkLabel.text = viewModel.deviceRemark
     }
 }

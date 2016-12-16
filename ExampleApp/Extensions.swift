@@ -9,11 +9,5 @@ import UIKit
  These are replaced by fake implementations during tests
 ***********************/
 
-class Window: UIWindow, Windowable {
-    var real: UIWindow {
-        return self
-    }
-}
-
 extension UIScreen: Screenable {
 }
